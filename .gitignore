@@ -1,0 +1,8 @@
+/venv/
+/config.yml
+/dev_config.yml
+/__pycache__/
+/.project
+/.pydevproject
+/int_config.yml
+/tests/__pycache__/
