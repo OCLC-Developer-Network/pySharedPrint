@@ -4,11 +4,11 @@ import requests_mock
 import pandas
 import handler
 
-with open('tests/mocks/holdings.json', 'r') as myfile:
+with open('tests/mocks/retained_holdings.json', 'r') as myfile:
     data=myfile.read()
 
 # parse file
-holdings_list = json.loads(data)
+retained_holdings_list = json.loads(data)
 
 with open('tests/mocks/retained_holdings_group.json', 'r') as myfile:
     data=myfile.read()
@@ -27,6 +27,17 @@ with open('tests/mocks/no_retained_holdings.json', 'r') as myfile:
 
 # parse file
 no_retained_holdings = json.loads(data)
+
+def test_getRetainedHoldings(requests_mock):
+    oclcNumber = "1752384"
+    group = "ASRL"
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-retained-holdings?oclcNumber=' + oclcNumber, status_code=200, json=retained_holdings_list)
+    bib = handler.getRetainedHoldings(oclcNumber);
+    assert type(bib) is pandas.core.series.Series
+    assert bib[0] == '1752384'
+    assert bib[1] == 716
+    assert len(bib[2].split(',')) == 1 
+    assert bib[3] == 'success'
 
 def test_getRetainedHoldings_HeldByGroup(requests_mock):
     oclcNumber = "1752384"
