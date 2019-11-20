@@ -1,1 +1,5 @@
-{"type":"NOT_FOUND","title":"Resource Not Found","detail":"The specified resource (222325187) was not found at this address."}
+{
+    "type": "NOT_FOUND",
+    "title": "Resource Not Found",
+    "detail": "The specified resource (222325187) was not found at this address."
+}
