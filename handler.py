@@ -14,6 +14,7 @@ import time
 from xml.etree import ElementTree
 from docutils.nodes import row
 from botocore.vendored.requests.api import request
+from cffi.ffiplatform import flatten
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 credentials = boto3.Session().get_credentials()
@@ -53,10 +54,14 @@ def getBriefHoldings(oclcnumber, heldInCountry):
             total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
-            new_oclc_number = ""
+            oclcnumber = ""
+            holdingsList = "none" 
+            total_holding_count = ""
             status = "failed"
     except requests.exceptions.HTTPError as err:
-        new_oclc_number = ""
+        oclcnumber = ""
+        holdingsList = "none" 
+        total_holding_count = ""
         status = "failed"
     return pd.Series([oclcnumber, total_holding_count, holdings, status])
 
@@ -80,10 +85,14 @@ def getHoldings(oclcnumber, heldByGroup="", heldby=institution_symbol):
             total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
-            new_oclc_number = ""
+            oclcnumber = ""
+            holdingsList = "none" 
+            total_holding_count = ""
             status = "failed"
     except requests.exceptions.HTTPError as err:
-        new_oclc_number = ""
+        oclcnumber = ""
+        holdingsList = "none" 
+        total_holding_count = ""
         status = "failed"
     return pd.Series([oclcnumber, total_holding_count, holdings, status])
 
@@ -110,21 +119,78 @@ def getRetainedHoldings(oclcnumber, heldByGroup="", heldInState=""):
             total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
+            oclcnumber = ""
+            retained_holdings = "none" 
+            total_holding_count = ""
             status = "failed"
     except requests.exceptions.HTTPError as err:
+        oclcnumber = ""
+        retained_holdings = "none" 
+        total_holding_count = ""
         status = "failed"
     return pd.Series([oclcnumber, total_holding_count, retained_holdings, status]) 
 
-def getMyLibraryHoldings(accession_number, oclcnumber, barcode):
+def getMyLibraryHoldings(identifierType, identifierValue):
     request_url = serviceURL + base_path + "/my-holdings"
-    if oclcNumber:
-        request_url += "?oclcNumber=" + oclcnumber
-    elif barcode:
-        request_url += "?barcode=" + barcode
-    elif accession_number:
-        request_url += '/' + accession_number
+    if identifierType == "oclcnumber":
+        request_url += "?oclcNumber=" + identifierValue
+    elif identifierType == "barcode":
+        request_url += "?barcode=" + identifierValue
+    elif identifierType == "accession_number":
+        request_url += '/' + identifierValue
     else:
         request_url = request_url
+
+    try:
+        r = oauth_session.get(request_url, headers={"Accept":"application/json"})
+        r.raise_for_status
+        try:
+            result = r.json()
+            if result.get('detailedHoldings'):
+                LHRList = result.get('detailedHoldings')
+                accession_numberList = map(lambda row: row.get('lhrControlNumber'), LHRList)
+                accession_numbers = ",".join(accession_numberList)
+                
+                holdingParts = list(map(lambda row: row.get('holdingParts'), LHRList))            
+                barcodeList = map(lambda row: row[0].get('pieceDesignation'), holdingParts)
+                barcodes = ",".join(barcodeList)
+                
+                oclcnumberList = map(lambda row: row.get('oclcNumber'), LHRList)
+                oclcnumberList = list(set(oclcnumberList))
+                oclcnumbers = ",".join(oclcnumberList)
+                
+                holdingsList = map(lambda row: row.get('location').get('holdingLocation') + "-" + row.get('location').get('sublocationCollection') + "-" + row.get('location').get('shelvingLocation'), LHRList)
+                holdingsList = list(set(holdingsList))
+                holdings = ",".join(holdingsList)  
+            elif result.get('lhrControlNumber'):
+                accession_numbers = result.get('lhrControlNumber');
+                barcodeList = map(lambda row: row.get('pieceDesignation'), result.get('holdingParts'))
+                barcodes = ",".join(barcodeList)
+                oclcnumbers = result.get('oclcNumber')
+                holdings = result.get('location').get('holdingLocation') + "-" + result.get('location').get('sublocationCollection') + "-" + result.get('location').get('shelvingLocation')                
+            
+            else:
+                accession_numbers = ""
+                barcodes = ""
+                oclcnumbers = ""               
+                holdings = "none";
+            total_holding_count = result.get('numberOfHoldings')              
+            status = "success"
+        except json.decoder.JSONDecodeError:
+            accession_numbers = ""
+            barcodes = ""
+            oclcnumbers = ""
+            holdings = "none" 
+            total_holding_count = ""
+            status = "failed"
+    except requests.exceptions.HTTPError as err:
+        accession_numbers = ""
+        barcodes = ""
+        oclcnumbers = ""
+        holdings = "none" 
+        total_holding_count = ""
+        status = "failed"
+    return pd.Series([oclcnumbers, accession_numbers, barcodes, total_holding_count, holdings, status])        
         
         
 def getMyLibraryRetainedHoldings(oclcnumber, barcode):
@@ -137,22 +203,38 @@ def getMyLibraryRetainedHoldings(oclcnumber, barcode):
         request_url = request_url
         
     try:
-        r = oauth_session.post(request_url, headers={"Accept":"application/json"})
+        r = oauth_session.get(request_url, headers={"Accept":"application/json"})
         r.raise_for_status
         try:
             result = r.json()
-            if result.get('briefRecords') and result.get('briefRecords')[0].get('institutionHolding'):
-                retained_holdingsList = map(lambda row: row.get('location').get('holdingLocation'), result.get('briefRecords')[0].get('institutionHolding').get('detailedHoldings'))
+            if result.get('detailedHoldings'):
+                accession_number = ""
+                barcode = ""
+                oclcnumber = ""
+                holdingsList = map(lambda row: row.get('holdingLocation') + "-" + row.get('holdingLocation').get('sublocationCollection') + "-" + row.get('holdingLocation').get('sublocationCollection').get('shelvingLocation'), result.get('detailedHoldings').get('location'))
                 retained_holdings = ",".join(retained_holdingsList)
             else:
-                retained_holdings = "none";  
-            total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')              
+                accession_number = ""
+                barcode = ""
+                oclcnumber = ""
+                retained_holdings = "none"  
+            total_holding_count = result.get('numberOfHoldings')              
             status = "success"
         except json.decoder.JSONDecodeError:
+            accession_number = ""
+            barcode = ""
+            oclcnumber = ""
+            retained_holdings = "none" 
+            total_holding_count = ""                         
             status = "failed"
     except requests.exceptions.HTTPError as err:
+        accession_number = ""
+        barcode = ""
+        oclcnumber = ""
+        retained_holdings = "none" 
+        total_holding_count = ""       
         status = "failed"
-    return pd.Series([oclcnumber, total_holding_count, retained_holdings, status])
+    return pd.Series([oclcnumber, accession_number, barcode, total_holding_count, holdingsList, status])
     
     
 def saveFile(bucket, filename, csv_dict):
