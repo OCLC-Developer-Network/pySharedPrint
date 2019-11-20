@@ -1,0 +1,23 @@
+{
+    "lhrControlNumber": "132422447",
+    "lhrDateEntered": "20190816",
+    "lhrLastUpdated": "20190816",
+    "oclcNumber": "246197114",
+    "format": "zu",
+    "location": {
+        "holdingLocation": "OCWMS",
+        "sublocationCollection": "CENT",
+        "shelvingLocation": "CENT-STACKS"
+    },
+    "copyNumber": "1",
+    "callNumber": {
+        "displayCallNumber": "CATS",
+        "classificationPart": "CATS"
+    },
+    "hasSharedPrintCommitment": "N",
+    "summary": "Local holdings available.",
+    "holdingParts": [{
+        "pieceDesignation": "CR963528",
+        "temporaryLocation": "présêlection"
+    }]
+}

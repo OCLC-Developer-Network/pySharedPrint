@@ -1,0 +1,50 @@
+{
+    "numberOfHoldings": 2,
+    "detailedHoldings": [
+        {
+            "lhrControlNumber": "62378575",
+            "lhrDateEntered": "20191119",
+            "lhrLastUpdated": "20191119",
+            "oclcNumber": "70775700",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "EAST",
+                "shelvingLocation": "EAST-STACKS"
+            },
+            "callNumber": {
+                "displayCallNumber": "DVD 1 2 3 4 5 6 7 8 9 99 999 99999 99999 999999 99999 999 9 9 9999 9999 99999 99999 99999999 8888 88 8 5555 5 55 CallNumber",
+                "classificationPart": "CallNumber",
+                "prefixes": ["DVD 1 2 3 4 5 6 7 8 9 99 999 99999 99999 999999 99999 999 9 9 9999 9999 99999 99999 99999999 8888 88 8 5555 5 55"]
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [{
+                "pieceDesignation": "54321",
+                "temporaryLocation": "In processing - not available"
+            }]
+        },
+        {
+            "lhrControlNumber": "58121871",
+            "lhrDateEntered": "20190613",
+            "lhrLastUpdated": "20190613",
+            "oclcNumber": "70775700",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-STACKS"
+            },
+            "callNumber": {
+                "displayCallNumber": "SF426.5",
+                "classificationPart": "SF426.5"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [{
+                "pieceDesignation": "184108714091",
+                "temporaryLocation": "MAIN-Reference"
+            }]
+        }
+    ]
+}
