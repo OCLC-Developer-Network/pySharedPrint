@@ -151,9 +151,12 @@ def getMyLibraryHoldings(identifierType, identifierValue):
                 accession_numberList = map(lambda row: row.get('lhrControlNumber'), LHRList)
                 accession_numbers = ",".join(accession_numberList)
                 
-                holdingParts = list(map(lambda row: row.get('holdingParts'), LHRList))            
-                barcodeList = map(lambda row: row[0].get('pieceDesignation'), holdingParts)
-                barcodes = ",".join(barcodeList)
+                lhrHoldingParts = list(map(lambda row: row.get('holdingParts'), LHRList))
+                holdingParts = [y for x in lhrHoldingParts for y in x]
+                       
+                barcodeList = map(lambda row: row.get('pieceDesignation'), holdingParts)
+                barcodeList = list(set(barcodeList))
+                barcodes = ",".join(item for item in barcodeList if item)
                 
                 oclcnumberList = map(lambda row: row.get('oclcNumber'), LHRList)
                 oclcnumberList = list(set(oclcnumberList))
@@ -165,7 +168,7 @@ def getMyLibraryHoldings(identifierType, identifierValue):
             elif result.get('lhrControlNumber'):
                 accession_numbers = result.get('lhrControlNumber');
                 barcodeList = map(lambda row: row.get('pieceDesignation'), result.get('holdingParts'))
-                barcodes = ",".join(barcodeList)
+                barcodes = ",".join(item for item in barcodeList if item)
                 oclcnumbers = result.get('oclcNumber')
                 holdings = result.get('location').get('holdingLocation') + "-" + result.get('location').get('sublocationCollection') + "-" + result.get('location').get('shelvingLocation')                
             
