@@ -1,0 +1,1550 @@
+{
+    "numberOfHoldings": 14,
+    "detailedHoldings": [
+        {
+            "lhrControlNumber": "223667789",
+            "lhrDateEntered": "20190802",
+            "lhrLastUpdated": "20190802",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "callNumber": {
+                "displayCallNumber": "TP785",
+                "classificationPart": "TP785"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2001 Spring"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2001 Summer"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2001 Fall"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2001 Winter"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.5",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2002 Printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2002 Printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.2",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2002 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.3",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2002 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.4",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2002 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.5",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2003 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.6",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2003 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.7",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2003 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.8",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2003 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.9",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2004 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.10",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2004 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.11",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2004 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.12",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2004 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.13",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2005 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.14",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2005 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.15",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2005 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.16",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2005 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.17",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2006"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2006 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "BAC possède : / LAC has: 2001-",
+                    "yearRanges": [{
+                        "from": "2001",
+                        "to": "2019"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "2001:Spring",
+                    "pieceDesignation": "33286524289994"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "summaryOfHoldings": "2001:Summer",
+                    "pieceDesignation": "33286524290091"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "summaryOfHoldings": "2001:Autumn",
+                    "pieceDesignation": "33286524289861",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "summaryOfHoldings": "2001:Winter",
+                    "pieceDesignation": "33286524289952",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "summaryOfHoldings": "2002:Spring",
+                    "pieceDesignation": "33286526856972",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.2",
+                    "summaryOfHoldings": "2002:Summer",
+                    "pieceDesignation": "33286528077791",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.3",
+                    "publicNotes": [
+                        "sans code a? barres / unbarcoded",
+                        "Non disponible / Not Available"
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.4",
+                    "summaryOfHoldings": "2002:Winter",
+                    "pieceDesignation": "33286528077890",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.5",
+                    "summaryOfHoldings": "2003:Spring",
+                    "pieceDesignation": "33286528759463",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.6",
+                    "summaryOfHoldings": "2003:Summer",
+                    "pieceDesignation": "33286529402675",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.7",
+                    "summaryOfHoldings": "2003:Autumn",
+                    "pieceDesignation": "33286530034178",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.8",
+                    "summaryOfHoldings": "2003:Winter",
+                    "pieceDesignation": "33286530189642",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.9",
+                    "summaryOfHoldings": "2004:Spring",
+                    "pieceDesignation": "33286530859137",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.10",
+                    "summaryOfHoldings": "2004:Summer",
+                    "pieceDesignation": "33286531566277",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.11",
+                    "summaryOfHoldings": "2004:Autumn",
+                    "pieceDesignation": "33286531790216",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.12",
+                    "summaryOfHoldings": "2004:Winter",
+                    "pieceDesignation": "33286535125849",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.13",
+                    "summaryOfHoldings": "2005:Spring",
+                    "pieceDesignation": "33286535125773",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.14",
+                    "summaryOfHoldings": "2005:Summer",
+                    "pieceDesignation": "33286534987371",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.15",
+                    "summaryOfHoldings": "2005:Autumn",
+                    "pieceDesignation": "33286535125708",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.16",
+                    "summaryOfHoldings": "2005:Winter",
+                    "pieceDesignation": "33286535125815",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.17",
+                    "summaryOfHoldings": "2006:Spring",
+                    "pieceDesignation": "33286537683845",
+                    "temporaryLocation": "MAIN-STACKS"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223667393",
+            "lhrDateEntered": "20190802",
+            "lhrLastUpdated": "20190802",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "callNumber": {
+                "displayCallNumber": "TP785",
+                "classificationPart": "TP785"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2001 Spring"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2001 Summer"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2001 Fall"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2001"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2001 Winter"]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.5",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2002 Printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2002 Printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.2",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2002 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.3",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2002 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.4",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2002"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2002 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.5",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2003 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.6",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2003 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.7",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2003 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.8",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2003"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2003 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.9",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2004 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.10",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2004 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.11",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2004 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.12",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2004"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2004 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.13",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2005 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.14",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "22"
+                        }
+                    ],
+                    "publicNotes": ["2005 été"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.15",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "23"
+                        }
+                    ],
+                    "publicNotes": ["2005 automne"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.16",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2005"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "24"
+                        }
+                    ],
+                    "publicNotes": ["2005 hiver"]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.17",
+                    "enumerations": [
+                        {
+                            "caption": "(year)",
+                            "value": "2006"
+                        },
+                        {
+                            "caption": "(season)",
+                            "value": "21"
+                        }
+                    ],
+                    "publicNotes": ["2006 printemps"]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "BAC possède : / LAC has: 2001-",
+                    "yearRanges": [{
+                        "from": "2001",
+                        "to": "2019"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "2001:Spring",
+                    "pieceDesignation": "33286524289994"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "summaryOfHoldings": "2001:Summer",
+                    "pieceDesignation": "33286524290091"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "summaryOfHoldings": "2001:Autumn",
+                    "pieceDesignation": "33286524289861",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "summaryOfHoldings": "2001:Winter",
+                    "pieceDesignation": "33286524289952",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "summaryOfHoldings": "2002:Spring",
+                    "pieceDesignation": "33286526856972",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.2",
+                    "summaryOfHoldings": "2002:Summer",
+                    "pieceDesignation": "33286528077791",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.3",
+                    "publicNotes": [
+                        "sans code a? barres / unbarcoded",
+                        "Non disponible / Not Available"
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.4",
+                    "summaryOfHoldings": "2002:Winter",
+                    "pieceDesignation": "33286528077890",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.5",
+                    "summaryOfHoldings": "2003:Spring",
+                    "pieceDesignation": "33286528759463",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.6",
+                    "summaryOfHoldings": "2003:Summer",
+                    "pieceDesignation": "33286529402675",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.7",
+                    "summaryOfHoldings": "2003:Autumn",
+                    "pieceDesignation": "33286530034178",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.8",
+                    "summaryOfHoldings": "2003:Winter",
+                    "pieceDesignation": "33286530189642",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.9",
+                    "summaryOfHoldings": "2004:Spring",
+                    "pieceDesignation": "33286530859137",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.10",
+                    "summaryOfHoldings": "2004:Summer",
+                    "pieceDesignation": "33286531566277",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.11",
+                    "summaryOfHoldings": "2004:Autumn",
+                    "pieceDesignation": "33286531790216",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.12",
+                    "summaryOfHoldings": "2004:Winter",
+                    "pieceDesignation": "33286535125849",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.13",
+                    "summaryOfHoldings": "2005:Spring",
+                    "pieceDesignation": "33286535125773",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.14",
+                    "summaryOfHoldings": "2005:Summer",
+                    "pieceDesignation": "33286534987371",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.15",
+                    "summaryOfHoldings": "2005:Autumn",
+                    "pieceDesignation": "33286535125708",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.16",
+                    "summaryOfHoldings": "2005:Winter",
+                    "pieceDesignation": "33286535125815",
+                    "temporaryLocation": "MAIN-STACKS"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.17",
+                    "summaryOfHoldings": "2006:Spring",
+                    "pieceDesignation": "33286537683845",
+                    "temporaryLocation": "MAIN-STACKS"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223603680",
+            "lhrDateEntered": "20190425",
+            "lhrLastUpdated": "20190425",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "1",
+            "callNumber": {
+                "displayCallNumber": "866 + PD",
+                "classificationPart": "866 + PD"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 1"
+                },
+                {
+                    "summaryOfHoldings": "v. 1",
+                    "itemMaterialSpecified": "v. 1",
+                    "pieceDesignation": "oclc1"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223603435",
+            "lhrDateEntered": "20181024",
+            "lhrLastUpdated": "20181024",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-STACKS"
+            },
+            "copyNumber": "2",
+            "callNumber": {
+                "displayCallNumber": "866 only",
+                "classificationPart": "866 only"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [{
+                "linkingAndSequenceNumber": "0",
+                "textualHoldings": "v. 2-5",
+                "volumeRanges": [{
+                    "from": "2",
+                    "to": "5"
+                }]
+            }]
+        },
+        {
+            "lhrControlNumber": "223603835",
+            "lhrLastUpdated": "20181024",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "3",
+            "callNumber": {
+                "displayCallNumber": "Enum/Chron + Piece Designation",
+                "classificationPart": "Enum/Chron + Piece Designation"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "3"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "3"
+                        },
+                        {
+                            "caption": "b.",
+                            "value": "3"
+                        }
+                    ],
+                    "chronologies": [
+                        {
+                            "caption": "(year)",
+                            "value": "2018"
+                        },
+                        {
+                            "caption": "(month)",
+                            "value": "10"
+                        },
+                        {
+                            "caption": "(day)",
+                            "value": "18"
+                        },
+                        {
+                            "caption": "(hour)",
+                            "value": "12"
+                        }
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "v.3:n.3: b. 3(2018:Oct 18:12)",
+                    "pieceDesignation": "oclc3"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223604406",
+            "lhrDateEntered": "20181025",
+            "lhrLastUpdated": "20181025",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "4",
+            "callNumber": {
+                "displayCallNumber": "Multiple 866",
+                "classificationPart": "Multiple 866"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 10-20",
+                    "volumeRanges": [{
+                        "from": "10",
+                        "to": "20"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 21-30",
+                    "volumeRanges": [{
+                        "from": "21",
+                        "to": "30"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 31-40",
+                    "volumeRanges": [{
+                        "from": "31",
+                        "to": "40"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 41-50",
+                    "volumeRanges": [{
+                        "from": "41",
+                        "to": "50"
+                    }]
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223604491",
+            "lhrDateEntered": "20181025",
+            "lhrLastUpdated": "20181025",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "5",
+            "callNumber": {
+                "displayCallNumber": "Multiple 866 / Some PDs",
+                "classificationPart": "Multiple 866 / Some PDs"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 45-46",
+                    "volumeRanges": [{
+                        "from": "45",
+                        "to": "46"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 78-79",
+                    "volumeRanges": [{
+                        "from": "78",
+                        "to": "79"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 89-90",
+                    "volumeRanges": [{
+                        "from": "89",
+                        "to": "90"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "0",
+                    "textualHoldings": "v. 34-35",
+                    "volumeRanges": [{
+                        "from": "34",
+                        "to": "35"
+                    }]
+                },
+                {
+                    "summaryOfHoldings": "v. 78-79",
+                    "itemMaterialSpecified": "v. 78-79",
+                    "pieceDesignation": "oclc5"
+                },
+                {
+                    "summaryOfHoldings": "v. 89-90",
+                    "itemMaterialSpecified": "v. 89-90",
+                    "pieceDesignation": "oclc5b"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223605910",
+            "lhrLastUpdated": "20181024",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "6",
+            "callNumber": {
+                "displayCallNumber": "Linked 866/enum/chron/PD",
+                "classificationPart": "Linked 866/enum/chron/PD"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [{
+                        "caption": "v.",
+                        "value": "1"
+                    }],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1980"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "enumerations": [{
+                        "caption": "v.",
+                        "value": "2"
+                    }],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1981"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "enumerations": [{
+                        "caption": "v.",
+                        "value": "3"
+                    }],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1982"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "enumerations": [{
+                        "caption": "v.",
+                        "value": "3"
+                    }],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1983"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "v.1(1980)",
+                    "pieceDesignation": "oclc6"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "summaryOfHoldings": "v.2(1981)",
+                    "pieceDesignation": "oclc6b"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "summaryOfHoldings": "v.3(1982)",
+                    "pieceDesignation": "oclc6c"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "summaryOfHoldings": "v.3(1983)",
+                    "pieceDesignation": "oclc6d"
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223606436",
+            "lhrLastUpdated": "20181024",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "7",
+            "callNumber": {
+                "displayCallNumber": "Enum/Chron Only",
+                "classificationPart": "Enum/Chron Only"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "7"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "7"
+                        },
+                        {
+                            "caption": "b.",
+                            "value": "7"
+                        },
+                        {
+                            "caption": "q.",
+                            "value": "7"
+                        }
+                    ],
+                    "chronologies": [
+                        {
+                            "caption": "(year)",
+                            "value": "2017"
+                        },
+                        {
+                            "caption": "(month)",
+                            "value": "07"
+                        }
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "8"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "8"
+                        },
+                        {
+                            "caption": "b.",
+                            "value": "8"
+                        },
+                        {
+                            "caption": "q.",
+                            "value": "8"
+                        }
+                    ],
+                    "chronologies": [
+                        {
+                            "caption": "(year)",
+                            "value": "2018"
+                        },
+                        {
+                            "caption": "(month)",
+                            "value": "08"
+                        }
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "6"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "6"
+                        },
+                        {
+                            "caption": "b.",
+                            "value": "6"
+                        },
+                        {
+                            "caption": "q.",
+                            "value": "6"
+                        }
+                    ],
+                    "chronologies": [
+                        {
+                            "caption": "(year)",
+                            "value": "2016"
+                        },
+                        {
+                            "caption": "(month)",
+                            "value": "06"
+                        }
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "diff 1"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "diff 1"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "diff 1"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "3.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "diff 2"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "diff 2"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(season)",
+                        "value": "diff 2"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "2016"
+                    }]
+                }
+            ]
+        },
+        {
+            "lhrControlNumber": "223607240",
+            "lhrLastUpdated": "20181024",
+            "oclcNumber": "2445677",
+            "format": "zu",
+            "location": {
+                "holdingLocation": "OCWMS",
+                "sublocationCollection": "MAIN",
+                "shelvingLocation": "MAIN-Periodicals"
+            },
+            "copyNumber": "8",
+            "callNumber": {
+                "displayCallNumber": "Multi Enum/Chron + PD",
+                "classificationPart": "Multi Enum/Chron + PD"
+            },
+            "hasSharedPrintCommitment": "N",
+            "summary": "Local holdings available.",
+            "holdingParts": [
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "1"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "1"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1990"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "2"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "2"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1991"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "3"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "3"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1992"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "4"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "4"
+                        }
+                    ],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "1993"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "enumerations": [
+                        {
+                            "caption": "v.",
+                            "value": "99"
+                        },
+                        {
+                            "caption": "n.",
+                            "value": "99"
+                        }
+                    ],
+                    "chronologies": [
+                        {
+                            "caption": "(year)",
+                            "value": "1999"
+                        },
+                        {
+                            "caption": "(month)",
+                            "value": "09"
+                        }
+                    ]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "enumerations": [{
+                        "caption": "suppl.",
+                        "value": "9999"
+                    }],
+                    "chronologies": [{
+                        "caption": "(year)",
+                        "value": "9999"
+                    }]
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "v.1:n.1(1990)",
+                    "pieceDesignation": "oclc8"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.2",
+                    "summaryOfHoldings": "v.2:n.2(1991)",
+                    "pieceDesignation": "oclc8b"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.3",
+                    "summaryOfHoldings": "v.3:n.3(1992)",
+                    "pieceDesignation": "oclc8c"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.4",
+                    "summaryOfHoldings": "v.4:n.4(1993)",
+                    "pieceDesignation": "oclc8d"
+                },
+                {
+                    "linkingAndSequenceNumber": "2.1",
+                    "summaryOfHoldings": "v.99:n.99(1999:Sep)",
+                    "pieceDesignation": "oclc8e"
+                },
+                {
+                    "linkingAndSequenceNumber": "1.1",
+                    "summaryOfHoldings": "suppl.9999(9999)",
+                    "pieceDesignation": "oclc8f"
+                }
+            ]
+        }
+    ]
+}

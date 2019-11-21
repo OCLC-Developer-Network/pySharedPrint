@@ -1,0 +1,63 @@
+{
+    "lhrControlNumber": "223604491",
+    "lhrDateEntered": "20181025",
+    "lhrLastUpdated": "20181025",
+    "oclcNumber": "2445677",
+    "format": "zu",
+    "location": {
+        "holdingLocation": "OCWMS",
+        "sublocationCollection": "MAIN",
+        "shelvingLocation": "MAIN-Periodicals"
+    },
+    "copyNumber": "5",
+    "callNumber": {
+        "displayCallNumber": "Multiple 866 / Some PDs",
+        "classificationPart": "Multiple 866 / Some PDs"
+    },
+    "hasSharedPrintCommitment": "N",
+    "summary": "Local holdings available.",
+    "holdingParts": [
+        {
+            "linkingAndSequenceNumber": "0",
+            "textualHoldings": "v. 45-46",
+            "volumeRanges": [{
+                "from": "45",
+                "to": "46"
+            }]
+        },
+        {
+            "linkingAndSequenceNumber": "0",
+            "textualHoldings": "v. 78-79",
+            "volumeRanges": [{
+                "from": "78",
+                "to": "79"
+            }]
+        },
+        {
+            "linkingAndSequenceNumber": "0",
+            "textualHoldings": "v. 89-90",
+            "volumeRanges": [{
+                "from": "89",
+                "to": "90"
+            }]
+        },
+        {
+            "linkingAndSequenceNumber": "0",
+            "textualHoldings": "v. 34-35",
+            "volumeRanges": [{
+                "from": "34",
+                "to": "35"
+            }]
+        },
+        {
+            "summaryOfHoldings": "v. 78-79",
+            "itemMaterialSpecified": "v. 78-79",
+            "pieceDesignation": "oclc5"
+        },
+        {
+            "summaryOfHoldings": "v. 89-90",
+            "itemMaterialSpecified": "v. 89-90",
+            "pieceDesignation": "oclc5b"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "lhrControlNumber": "223603680",
+    "lhrDateEntered": "20190425",
+    "lhrLastUpdated": "20190425",
+    "oclcNumber": "2445677",
+    "format": "zu",
+    "location": {
+        "holdingLocation": "OCWMS",
+        "sublocationCollection": "MAIN",
+        "shelvingLocation": "MAIN-Periodicals"
+    },
+    "copyNumber": "1",
+    "callNumber": {
+        "displayCallNumber": "866 + PD",
+        "classificationPart": "866 + PD"
+    },
+    "hasSharedPrintCommitment": "N",
+    "summary": "Local holdings available.",
+    "holdingParts": [
+        {
+            "linkingAndSequenceNumber": "0",
+            "textualHoldings": "v. 1"
+        },
+        {
+            "summaryOfHoldings": "v. 1",
+            "itemMaterialSpecified": "v. 1",
+            "pieceDesignation": "oclc1"
+        }
+    ]
+}
