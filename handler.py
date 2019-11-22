@@ -6,16 +6,9 @@ from oauthlib.oauth2 import BackendApplicationClient
 from requests.auth import HTTPBasicAuth
 from requests_oauthlib import OAuth2Session
 import requests
-import pymarc
-from pymarc import Record, Field
 import os
 from io import StringIO
-import time
-from xml.etree import ElementTree
-from docutils.nodes import row
-from botocore.vendored.requests.api import request
-from cffi.ffiplatform import flatten
-from StdSuites.AppleScript_Suite import event
+from pandas.tests.groupby.test_index_as_string import series
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 credentials = boto3.Session().get_credentials()
@@ -47,8 +40,8 @@ def getMergedOCLCNumbers(oclcnumber):
         r.raise_for_status
         try:
             result = r.json()
-            if mergedOCLCNumbers:
-                mergedOCLCNumbers = ""
+            if result.get('identifier').get('mergedOclcNumbers'):
+                mergedOCLCNumbers = ",".join(result.get('identifier').get('mergedOclcNumbers'))
             else:
                 mergedOCLCNumbers = ""
             status = "success"
@@ -151,7 +144,7 @@ def getRetainedHoldings(oclcnumber, heldByGroup="", heldInState=""):
     return pd.Series([oclcnumber, total_holding_count, retained_holdings, status]) 
 
 def getMyLibraryHoldings(identifierType, identifierValue):
-    request_url = serviceURL + base_path + "/retained-holdings"
+    request_url = serviceURL + base_path + "/my-holdings"
     if identifierType == "oclcnumber":
         request_url += "?oclcNumber=" + identifierValue
     elif identifierType == "barcode":
@@ -216,12 +209,12 @@ def getMyLibraryHoldings(identifierType, identifierValue):
     return pd.Series([oclcnumbers, accession_numbers, barcodes, total_holding_count, holdings, status])        
         
         
-def getMyLibraryRetainedHoldings(oclcnumber, barcode):
-    request_url = serviceURL + base_path + "/retained-holdings"
+def getMyLibraryRetainedHoldings(oclcSymbol, oclcnumber ="", barcode=""):
+    request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclcSymbol
     if oclcNumber:
-        request_url += "?oclcNumber=" + oclcnumber
+        request_url += "&oclcNumber=" + oclcnumber
     elif barcode:
-        request_url += "?barcode=" + barcode
+        request_url += "&barcode=" + barcode
     else:
         request_url = request_url
         
@@ -260,15 +253,16 @@ def getMyLibraryRetainedHoldings(oclcnumber, barcode):
     return pd.Series([oclcnumber, accession_number, barcode, total_holding_count, holdingsList, status])
     
 def getLibraryRetainedHoldings(df, oclc_symbol):
-    request_url = serviceURL + base_path + "/retained-holdings"
+    request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclc_symbol
     try:
         r = oauth_session.get(request_url, headers={"Accept":"application/json"})
         r.raise_for_status
         try:
             result = r.json()
             if result.get('detailedHoldings'):
-                df['oclcnumber', 'lhr_accession_number'] = pd.Series[oclcnumber, accession_number]
-                 
+                for lhr in result.get('detailedHoldings'):
+                    lhrset = pd.Series(data=[lhr.get('oclcNumber'), lhr.get('lhrControlNumber')], index=['oclcnumber', 'accession_number'])
+                    df = pd.concat([df, lhrset.to_frame().T], ignore_index=True)
             else:
                 oclcnumber = ""
                 accession_number = ""                              
@@ -282,8 +276,7 @@ def getLibraryRetainedHoldings(df, oclc_symbol):
         oclcnumber = ""       
         status = "failed"
     
-    return df       
-
+    return df
 
 def saveFile(bucket, filename, csv_dict):
     csv_buffer = StringIO()    
