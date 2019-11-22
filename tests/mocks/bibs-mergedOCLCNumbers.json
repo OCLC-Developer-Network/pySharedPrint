@@ -1,1 +1,442 @@
-{"identifier":{"oclcNumber":"311684437","lccn":"2008937609","isbns":["9781594743344","1594743347","9781594743351","1594743355","9781594744518","1594744513"],"externalIdentifiers":[{"oclcSymbol":"AU@","systemControlNumber":"000043839587"},{"oclcSymbol":"AU@","systemControlNumber":"000044205433"},{"oclcSymbol":"AU@","systemControlNumber":"000044218081"},{"oclcSymbol":"AU@","systemControlNumber":"000054552395"},{"oclcSymbol":"CBK","systemControlNumber":"120281791"},{"oclcSymbol":"COVCL","systemControlNumber":"1594743347"},{"oclcSymbol":"DEBBG","systemControlNumber":"BV035970551"},{"oclcSymbol":"LBRUT","systemControlNumber":"1594743347"},{"oclcSymbol":"NLGGC","systemControlNumber":"321202333"},{"oclcSymbol":"NOK","systemControlNumber":"1594743347"},{"oclcSymbol":"NOK","systemControlNumber":"1594744513"},{"oclcSymbol":"NZ1","systemControlNumber":"12866253"},{"oclcSymbol":"NZ1","systemControlNumber":"14508856"},{"oclcSymbol":"OXFCL","systemControlNumber":"1594743347"},{"oclcSymbol":"REABC","systemControlNumber":"1594743347"},{"oclcSymbol":"UKBCI","systemControlNumber":"120281791"},{"oclcSymbol":"UKBCI","systemControlNumber":"12033044X"},{"oclcSymbol":"UKBED","systemControlNumber":"1594743347"},{"oclcSymbol":"UKBFB","systemControlNumber":"1594743347"},{"oclcSymbol":"UKBNS","systemControlNumber":"120281791"},{"oclcSymbol":"UKBNS","systemControlNumber":"12033044X"},{"oclcSymbol":"UKBNT","systemControlNumber":"1594743347"},{"oclcSymbol":"UKBOR","systemControlNumber":"12033044X"},{"oclcSymbol":"UKBUR","systemControlNumber":"1594743347"},{"oclcSymbol":"UKCHS","systemControlNumber":"1594743347"},{"oclcSymbol":"UKDEL","systemControlNumber":"120281791"},{"oclcSymbol":"UKDLI","systemControlNumber":"1594743347"},{"oclcSymbol":"UKDON","systemControlNumber":"1594743347"},{"oclcSymbol":"UKDOR","systemControlNumber":"120281791"},{"oclcSymbol":"UKGTH","systemControlNumber":"1594743347"},{"oclcSymbol":"UKJSY","systemControlNumber":"1594743347"},{"oclcSymbol":"UKKCC","systemControlNumber":"1594743347"},{"oclcSymbol":"UKKUT","systemControlNumber":"1594743347"},{"oclcSymbol":"UKLBB","systemControlNumber":"1594743347"},{"oclcSymbol":"UKLCL","systemControlNumber":"1594743347"},{"oclcSymbol":"UKLLS","systemControlNumber":"1594743347"},{"oclcSymbol":"UKNLL","systemControlNumber":"1594743347"},{"oclcSymbol":"UKNWH","systemControlNumber":"1594743347"},{"oclcSymbol":"UKNWP","systemControlNumber":"1594743347"},{"oclcSymbol":"UKPMH","systemControlNumber":"120281791"},{"oclcSymbol":"UKSCO","systemControlNumber":"120281791"},{"oclcSymbol":"UKSCO","systemControlNumber":"12033044X"},{"oclcSymbol":"UKSCO","systemControlNumber":"1594743347"},{"oclcSymbol":"UKSFD","systemControlNumber":"1594743347"},{"oclcSymbol":"UKSGC","systemControlNumber":"120281791"},{"oclcSymbol":"UKSGC","systemControlNumber":"12033044X"},{"oclcSymbol":"UKSGC","systemControlNumber":"1594743347"},{"oclcSymbol":"UKSOM","systemControlNumber":"120281791"},{"oclcSymbol":"UKSOM","systemControlNumber":"12033044X"},{"oclcSymbol":"UKSUS","systemControlNumber":"1594743347"},{"oclcSymbol":"UKTLS","systemControlNumber":"120281791"},{"oclcSymbol":"UNITY","systemControlNumber":"120281791"},{"oclcSymbol":"UNITY","systemControlNumber":"12033044X"},{"oclcSymbol":"WARCC","systemControlNumber":"1594743347"},{"oclcSymbol":"NZ1","systemControlNumber":"1338416"}],"mergedOclcNumbers":["261176486","330361568","377707240","426228842","701739996","716923895","731216527","887752101","945738851"]},"title":{"mainTitles":[{"text":"Pride and prejudice and zombies : the classic regency romance--now with ultraviolent zombie mayhem / by Jane Austen and Seth Grahame-Smith."}],"seriesTitles":[{"seriesTitle":"Quirk classics"},{"seriesTitle":"Quirk classics."}]},"contributor":{"creators":[{"firstName":{"text":"Seth."},"secondName":{"text":"Grahame-Smith"},"type":"person"},{"firstName":{"text":"Jane"},"secondName":{"text":"Austen"},"type":"person","creatorNotes":["1775-1817."]}]},"subjects":[{"subjectName":{"text":"Austen, Jane, 1775-1817 Parodies, imitations, etc."},"vocabulary":"Library of Congress Subject Headings","subjectType":"personalName"},{"subjectName":{"text":"Bennet, Elizabeth (Fictitious character) Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"personalName"},{"subjectName":{"text":"Darcy, Fitzwilliam (Fictitious character) Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"personalName"},{"subjectName":{"text":"Austen, Jane, 1775-1817 Parodies, imitations, etc."},"vocabulary":"sears","subjectType":"personalName"},{"subjectName":{"text":"Austen, Jane, 1775-1817."},"vocabulary":"fast","subjectType":"personalName"},{"subjectName":{"text":"Bennet, Elizabeth (Fictitious character)"},"vocabulary":"fast","subjectType":"personalName"},{"subjectName":{"text":"Darcy, Fitzwilliam (Fictitious character)"},"vocabulary":"fast","subjectType":"personalName"},{"subjectName":{"text":"Zombies Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"topic"},{"subjectName":{"text":"Young women England Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"topic"},{"subjectName":{"text":"Social classes England Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"topic"},{"subjectName":{"text":"Sisters Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"topic"},{"subjectName":{"text":"Darcy, Fitzwilliam (Fictional character) Fiction."},"vocabulary":"sears","subjectType":"topic"},{"subjectName":{"text":"Bennet, Elizabeth (Fictional character) Fiction."},"vocabulary":"sears","subjectType":"topic"},{"subjectName":{"text":"Zombies Fiction."},"vocabulary":"sears","subjectType":"topic"},{"subjectName":{"text":"Sisters."},"vocabulary":"fast","subjectType":"topic"},{"subjectName":{"text":"Social classes."},"vocabulary":"fast","subjectType":"topic"},{"subjectName":{"text":"Young women."},"vocabulary":"fast","subjectType":"topic"},{"subjectName":{"text":"Zombies."},"vocabulary":"fast","subjectType":"topic"},{"subjectName":{"text":"England Fiction."},"vocabulary":"Library of Congress Subject Headings","subjectType":"geographicalTerm"},{"subjectName":{"text":"England."},"vocabulary":"fast","subjectType":"geographicalTerm"},{"subjectName":{"text":"Horror tales."},"vocabulary":"Library of Congress Subject Headings","subjectType":"genreFormTerm"},{"subjectName":{"text":"Regency fiction."},"vocabulary":"gsafd","subjectType":"genreFormTerm"},{"subjectName":{"text":"Regency novels."},"vocabulary":"sears","subjectType":"genreFormTerm"},{"subjectName":{"text":"Fiction."},"vocabulary":"fast","subjectType":"genreFormTerm"},{"subjectName":{"text":"Horror tales."},"vocabulary":"fast","subjectType":"genreFormTerm"},{"subjectName":{"text":"Parodies, imitations, etc."},"vocabulary":"fast","subjectType":"genreFormTerm"}],"classification":{"dewey":"813/.6","lc":"PS3607.R348 P75 2009"},"publishers":[{"publisherName":{"text":"Quirk Books ; Distributed in North America by Chronicle Books"},"publicationPlace":"Philadelphia :, San Francisco :"}],"date":{"publicationDate":"©2009.","createDate":"20080916","replaceDate":"20160418"},"language":{"catalogingLanguage":"eng"},"edition":{},"note":{},"format":{"generalFormat":"Book","specificFormat":"PrintBook","materialTypes":["fic"]},"musicInfo":{},"description":{"physicalDescription":"335 pages : illustrations ; 21 cm.","genres":["Horror tales.","Regency fiction.","Regency novels.","Fiction.","Parodies, imitations, etc."],"summaries":[{"text":"As a mysterious plague falls upon the village of Meryton and zombies start rising from the dead, Elizabeth Bennet is determined to destroy the evil menace, but becomes distracted by the arrival of the dashing and arrogant Mr. Darcy."}],"peerReviewed":"N"},"related":{},"work":{"id":"2289778060","count":54},"database":{"source":"xwc","collection":"xwc"}}
+{
+    "identifier": {
+        "oclcNumber": "311684437",
+        "lccn": "2008937609",
+        "isbns": [
+            "9781594743344",
+            "1594743347",
+            "9781594743351",
+            "1594743355",
+            "9781594744518",
+            "1594744513"
+        ],
+        "externalIdentifiers": [
+            {
+                "oclcSymbol": "AU@",
+                "systemControlNumber": "000043839587"
+            },
+            {
+                "oclcSymbol": "AU@",
+                "systemControlNumber": "000044205433"
+            },
+            {
+                "oclcSymbol": "AU@",
+                "systemControlNumber": "000044218081"
+            },
+            {
+                "oclcSymbol": "AU@",
+                "systemControlNumber": "000054552395"
+            },
+            {
+                "oclcSymbol": "CBK",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "COVCL",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "DEBBG",
+                "systemControlNumber": "BV035970551"
+            },
+            {
+                "oclcSymbol": "LBRUT",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "NLGGC",
+                "systemControlNumber": "321202333"
+            },
+            {
+                "oclcSymbol": "NOK",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "NOK",
+                "systemControlNumber": "1594744513"
+            },
+            {
+                "oclcSymbol": "NZ1",
+                "systemControlNumber": "12866253"
+            },
+            {
+                "oclcSymbol": "NZ1",
+                "systemControlNumber": "14508856"
+            },
+            {
+                "oclcSymbol": "OXFCL",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "REABC",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKBCI",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKBCI",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKBED",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKBFB",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKBNS",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKBNS",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKBNT",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKBOR",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKBUR",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKCHS",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKDEL",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKDLI",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKDON",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKDOR",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKGTH",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKJSY",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKKCC",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKKUT",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKLBB",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKLCL",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKLLS",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKNLL",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKNWH",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKNWP",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKPMH",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKSCO",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKSCO",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKSCO",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKSFD",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKSGC",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKSGC",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKSGC",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKSOM",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UKSOM",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "UKSUS",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "UKTLS",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UNITY",
+                "systemControlNumber": "120281791"
+            },
+            {
+                "oclcSymbol": "UNITY",
+                "systemControlNumber": "12033044X"
+            },
+            {
+                "oclcSymbol": "WARCC",
+                "systemControlNumber": "1594743347"
+            },
+            {
+                "oclcSymbol": "NZ1",
+                "systemControlNumber": "1338416"
+            }
+        ],
+        "mergedOclcNumbers": [
+            "261176486",
+            "330361568",
+            "377707240",
+            "426228842",
+            "701739996",
+            "716923895",
+            "731216527",
+            "887752101",
+            "945738851"
+        ]
+    },
+    "title": {
+        "mainTitles": [{"text": "Pride and prejudice and zombies : the classic regency romance--now with ultraviolent zombie mayhem / by Jane Austen and Seth Grahame-Smith."}],
+        "seriesTitles": [
+            {"seriesTitle": "Quirk classics"},
+            {"seriesTitle": "Quirk classics."}
+        ]
+    },
+    "contributor": {"creators": [
+        {
+            "firstName": {"text": "Seth."},
+            "secondName": {"text": "Grahame-Smith"},
+            "type": "person"
+        },
+        {
+            "firstName": {"text": "Jane"},
+            "secondName": {"text": "Austen"},
+            "type": "person",
+            "creatorNotes": ["1775-1817."]
+        }
+    ]},
+    "subjects": [
+        {
+            "subjectName": {"text": "Austen, Jane, 1775-1817 Parodies, imitations, etc."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Bennet, Elizabeth (Fictitious character) Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Darcy, Fitzwilliam (Fictitious character) Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Austen, Jane, 1775-1817 Parodies, imitations, etc."},
+            "vocabulary": "sears",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Austen, Jane, 1775-1817."},
+            "vocabulary": "fast",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Bennet, Elizabeth (Fictitious character)"},
+            "vocabulary": "fast",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Darcy, Fitzwilliam (Fictitious character)"},
+            "vocabulary": "fast",
+            "subjectType": "personalName"
+        },
+        {
+            "subjectName": {"text": "Zombies Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Young women England Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Social classes England Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Sisters Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Darcy, Fitzwilliam (Fictional character) Fiction."},
+            "vocabulary": "sears",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Bennet, Elizabeth (Fictional character) Fiction."},
+            "vocabulary": "sears",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Zombies Fiction."},
+            "vocabulary": "sears",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Sisters."},
+            "vocabulary": "fast",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Social classes."},
+            "vocabulary": "fast",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Young women."},
+            "vocabulary": "fast",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "Zombies."},
+            "vocabulary": "fast",
+            "subjectType": "topic"
+        },
+        {
+            "subjectName": {"text": "England Fiction."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "geographicalTerm"
+        },
+        {
+            "subjectName": {"text": "England."},
+            "vocabulary": "fast",
+            "subjectType": "geographicalTerm"
+        },
+        {
+            "subjectName": {"text": "Horror tales."},
+            "vocabulary": "Library of Congress Subject Headings",
+            "subjectType": "genreFormTerm"
+        },
+        {
+            "subjectName": {"text": "Regency fiction."},
+            "vocabulary": "gsafd",
+            "subjectType": "genreFormTerm"
+        },
+        {
+            "subjectName": {"text": "Regency novels."},
+            "vocabulary": "sears",
+            "subjectType": "genreFormTerm"
+        },
+        {
+            "subjectName": {"text": "Fiction."},
+            "vocabulary": "fast",
+            "subjectType": "genreFormTerm"
+        },
+        {
+            "subjectName": {"text": "Horror tales."},
+            "vocabulary": "fast",
+            "subjectType": "genreFormTerm"
+        },
+        {
+            "subjectName": {"text": "Parodies, imitations, etc."},
+            "vocabulary": "fast",
+            "subjectType": "genreFormTerm"
+        }
+    ],
+    "classification": {
+        "dewey": "813/.6",
+        "lc": "PS3607.R348 P75 2009"
+    },
+    "publishers": [{
+        "publisherName": {"text": "Quirk Books ; Distributed in North America by Chronicle Books"},
+        "publicationPlace": "Philadelphia :, San Francisco :"
+    }],
+    "date": {
+        "publicationDate": "©2009.",
+        "createDate": "20080916",
+        "replaceDate": "20160418"
+    },
+    "language": {"catalogingLanguage": "eng"},
+    "edition": {},
+    "note": {},
+    "format": {
+        "generalFormat": "Book",
+        "specificFormat": "PrintBook",
+        "materialTypes": ["fic"]
+    },
+    "musicInfo": {},
+    "description": {
+        "physicalDescription": "335 pages : illustrations ; 21 cm.",
+        "genres": [
+            "Horror tales.",
+            "Regency fiction.",
+            "Regency novels.",
+            "Fiction.",
+            "Parodies, imitations, etc."
+        ],
+        "summaries": [{"text": "As a mysterious plague falls upon the village of Meryton and zombies start rising from the dead, Elizabeth Bennet is determined to destroy the evil menace, but becomes distracted by the arrival of the dashing and arrogant Mr. Darcy."}],
+        "peerReviewed": "N"
+    },
+    "related": {},
+    "work": {
+        "id": "2289778060",
+        "count": 54
+    },
+    "database": {
+        "source": "xwc",
+        "collection": "xwc"
+    }
+}
