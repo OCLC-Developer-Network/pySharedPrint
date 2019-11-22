@@ -2,6 +2,23 @@
 
 Custom application looks for new files in particular folders an S3 bucket and interacts with the API for shared print data based on the data in the delimited file
 
+## Supposed use cases
+
+Obtained list of libraries holding given OCLC Number
+
+Obtain list of libraries with retention by OCLC Number by group or state
+- Library identifies a group of records that are no longer in their library (e.g. via an inventory project) or have become damaged (e.g. water damage), and wishes to see who else in EAST owns these records, and if any of them are already under retention.  If under retention elsewhere retrieve 583 |3 (holdings). 
+
+
+Obtain retained holdings for OCLC Symbol given by OCLC Number
+- Confirm retentions in local catalog match what is recorded in OCLC.  (Search list of OCLC numbers and see if Shared Print flag set for that library) 
+
+
+Obtain retained holdings for OCLC Symbol
+How many unique retentions does a library have?   Are any of those uniquely held in EAST retained in other programs?  Also confirm number held in US (is it really rare or not). (Search list of OCLC numbers and return number of EAST retentions, other retentions and US holdings on each.)
+
+Retrieve all OCLC numbers (current and merged record numbers) associated with a retention.  
+
 ## Installing Locally
 
 ### Step 1: Clone the repository
