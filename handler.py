@@ -15,6 +15,7 @@ from xml.etree import ElementTree
 from docutils.nodes import row
 from botocore.vendored.requests.api import request
 from cffi.ffiplatform import flatten
+from StdSuites.AppleScript_Suite import event
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 credentials = boto3.Session().get_credentials()
@@ -39,7 +40,26 @@ try:
     token = oauth_session.fetch_token(token_url=config.get('token_url'), auth=auth)
 except BaseException as err:
     print(err)
-    
+
+def getMergedOCLCNumbers(oclcnumber):
+    try:
+        r = oauth_session.get(serviceURL + base_path +"/bibs/" + oclcnumber, headers={"Accept":"application/json"})
+        r.raise_for_status
+        try:
+            result = r.json()
+            if mergedOCLCNumbers:
+                mergedOCLCNumbers = ""
+            else:
+                mergedOCLCNumbers = ""
+            status = "success"
+        except json.decoder.JSONDecodeError:
+            mergedOCLCNumbers = ""
+            status = "failed"
+    except requests.exceptions.HTTPError as err:
+        mergedOCLCNumbers = ""
+        status = "failed"
+    return pd.Series([oclcnumber, mergedOCLCNumbers, status])        
+
 def getBriefHoldings(oclcnumber, heldInCountry):
     try:
         r = oauth_session.get(serviceURL + base_path +"/bibs-holdings?oclcNumber=" + oclcnumber + "&heldInCountry=" + heldInCountry, headers={"Accept":"application/json"})
@@ -131,7 +151,7 @@ def getRetainedHoldings(oclcnumber, heldByGroup="", heldInState=""):
     return pd.Series([oclcnumber, total_holding_count, retained_holdings, status]) 
 
 def getMyLibraryHoldings(identifierType, identifierValue):
-    request_url = serviceURL + base_path + "/my-holdings"
+    request_url = serviceURL + base_path + "/retained-holdings"
     if identifierType == "oclcnumber":
         request_url += "?oclcNumber=" + identifierValue
     elif identifierType == "barcode":
@@ -239,7 +259,32 @@ def getMyLibraryRetainedHoldings(oclcnumber, barcode):
         status = "failed"
     return pd.Series([oclcnumber, accession_number, barcode, total_holding_count, holdingsList, status])
     
+def getLibraryRetainedHoldings(df, oclc_symbol):
+    request_url = serviceURL + base_path + "/retained-holdings"
+    try:
+        r = oauth_session.get(request_url, headers={"Accept":"application/json"})
+        r.raise_for_status
+        try:
+            result = r.json()
+            if result.get('detailedHoldings'):
+                df['oclcnumber', 'lhr_accession_number'] = pd.Series[oclcnumber, accession_number]
+                 
+            else:
+                oclcnumber = ""
+                accession_number = ""                              
+            status = "success"
+        except json.decoder.JSONDecodeError:
+            oclcnumber = ""
+            accession_number = ""                        
+            status = "failed"
+    except requests.exceptions.HTTPError as err:
+        accession_number = ""
+        oclcnumber = ""       
+        status = "failed"
     
+    return df       
+
+
 def saveFile(bucket, filename, csv_dict):
     csv_buffer = StringIO()    
     csv_dict.to_csv(csv_buffer, sep="|", index=False)
@@ -276,4 +321,19 @@ def checkSPByOCLCNumber(event, context):
     csv_read[['oclcnumber', 'total_holding_count', 'retained_symbols', 'status']] = csv_read.apply (lambda row: getRetainedHoldings(row['oclcNumber']), axis=1)    
      
     return saveFile(bucket, key + "_updated", csv_read)
+
+def checkInstitutionRetentions (event, context):
+    
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+    # need to get the file from S3
+    response = s3.get_object(Bucket=bucket, Key=key)  
+    item_file = response['Body'].read().decode('utf-8')
+    csv_read = pd.read_csv(item_file, sep="|", dtype={'Item_Call_Number': 'object'}, index_col=False)
+    
+    for index, row in csv_read.iterrows():
+        #make a new file for each institution
+        df = pd.DataFrame(columns=['oclcnumber', 'accession_number'])
+        retained_holdings = getLibraryRetainedHoldings(df, institution_symbol)
+        saveFile(bucket, key + "_"+ institution_symbol + "_retained", retained_holdings)    
   
