@@ -209,12 +209,12 @@ def getMyLibraryHoldings(identifierType, identifierValue):
     return pd.Series([oclcnumbers, accession_numbers, barcodes, total_holding_count, holdings, status])        
         
         
-def getMyLibraryRetainedHoldings(oclcSymbol, oclcnumber ="", barcode=""):
+def getMyLibraryRetainedHoldings(oclcSymbol, identifier):
     request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclcSymbol
-    if oclcNumber:
-        request_url += "&oclcNumber=" + oclcnumber
-    elif barcode:
-        request_url += "&barcode=" + barcode
+    if identifier['type'] == "oclcNumber":
+        request_url += "&oclcNumber=" + identifier['value']
+    elif identifier['type'] == "barcode":
+        request_url += "&barcode=" + identifier['value']
     else:
         request_url = request_url
         
@@ -224,33 +224,43 @@ def getMyLibraryRetainedHoldings(oclcSymbol, oclcnumber ="", barcode=""):
         try:
             result = r.json()
             if result.get('detailedHoldings'):
-                accession_number = ""
-                barcode = ""
-                oclcnumber = ""
-                holdingsList = map(lambda row: row.get('holdingLocation') + "-" + row.get('holdingLocation').get('sublocationCollection') + "-" + row.get('holdingLocation').get('sublocationCollection').get('shelvingLocation'), result.get('detailedHoldings').get('location'))
-                retained_holdings = ",".join(retained_holdingsList)
+                LHRList = result.get('detailedHoldings')
+                accession_numberList = map(lambda row: row.get('lhrControlNumber'), LHRList)
+                accession_numbers = ",".join(accession_numberList)
+                
+                lhrHoldingParts = list(map(lambda row: row.get('holdingParts'), LHRList))
+                holdingParts = [y for x in lhrHoldingParts for y in x]
+                       
+                barcodeList = map(lambda row: row.get('pieceDesignation'), holdingParts)
+                barcodeList = list(set(barcodeList))
+                barcodes = ",".join(item for item in barcodeList if item)
+                
+                oclcnumberList = map(lambda row: row.get('oclcNumber'), LHRList)
+                oclcnumberList = list(set(oclcnumberList))
+                oclcnumbers = ",".join(oclcnumberList)
+                
+                holdingsList = map(lambda row: row.get('location').get('holdingLocation') + "-" + row.get('location').get('sublocationCollection') + "-" + row.get('location').get('shelvingLocation'), LHRList)
+                holdingsList = list(set(holdingsList))
+                retained_holdings = ",".join(holdingsList) 
             else:
                 accession_number = ""
                 barcode = ""
                 oclcnumber = ""
-                retained_holdings = "none"  
-            total_holding_count = result.get('numberOfHoldings')              
+                retained_holdings = "none"                
             status = "success"
         except json.decoder.JSONDecodeError:
             accession_number = ""
             barcode = ""
             oclcnumber = ""
-            retained_holdings = "none" 
-            total_holding_count = ""                         
+            retained_holdings = "none"                  
             status = "failed"
     except requests.exceptions.HTTPError as err:
         accession_number = ""
         barcode = ""
         oclcnumber = ""
-        retained_holdings = "none" 
-        total_holding_count = ""       
+        retained_holdings = "none"      
         status = "failed"
-    return pd.Series([oclcnumber, accession_number, barcode, total_holding_count, holdingsList, status])
+    return pd.Series([oclcnumber, accession_number, barcode, retained_holdings, status])
     
 def getLibraryRetainedHoldings(df, oclc_symbol):
     request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclc_symbol
@@ -278,6 +288,19 @@ def getLibraryRetainedHoldings(df, oclc_symbol):
     
     return df
 
+def readFile(event):
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+    # need to get the file from S3
+    response = s3.get_object(Bucket=bucket, Key=key)  
+    item_file = response['Body'].read().decode('utf-8')
+    return item_file
+    
+
+def loadCSV(item_file, seperator=",", typeArray=""):    
+    pd.read_csv(item_file, sep=seperator, dtype=typeArray, index_col=False)
+    return csv_read
+
 def saveFile(bucket, filename, csv_dict):
     csv_buffer = StringIO()    
     csv_dict.to_csv(csv_buffer, sep="|", index=False)
@@ -291,38 +314,34 @@ def saveFile(bucket, filename, csv_dict):
             error_message += err.response['Error']['Code']
         return error_message 
 
-def checkHoldingsByOCLCNumber(event, context):  
-    
-    bucket = event['Records'][0]['s3']['bucket']['name']
-    key = event['Records'][0]['s3']['object']['key']
-    # need to get the file from S3
-    response = s3.get_object(Bucket=bucket, Key=key)  
-    item_file = response['Body'].read().decode('utf-8')
-    csv_read = pd.read_csv(item_file, sep="|", dtype={'Item_Call_Number': 'object'}, index_col=False)
+## file contains OCLC Numbers
+def checkHoldingsByOCLCNumber(event, context):      
+    item_file = readFile(event)
+    csv_read = loadCSV(item_file)
     csv_read[['oclcnumber', 'total_holding_count', 'holding_symbols', 'status']] = csv_read.apply (lambda row: getHoldings(row['oclcNumber']), axis=1)    
          
     return saveFile(bucket, key + "_updated", csv_read)    
 
+## file contains OCLC Numbers
 def checkSPByOCLCNumber(event, context):  
-    
-    bucket = event['Records'][0]['s3']['bucket']['name']
-    key = event['Records'][0]['s3']['object']['key']
-    # need to get the file from S3
-    response = s3.get_object(Bucket=bucket, Key=key)  
-    item_file = response['Body'].read().decode('utf-8')
-    csv_read = pd.read_csv(item_file, sep="|", dtype={'Item_Call_Number': 'object'}, index_col=False)
+    item_file = readFile(event)
+    csv_read = loadCSV(item_file)
     csv_read[['oclcnumber', 'total_holding_count', 'retained_symbols', 'status']] = csv_read.apply (lambda row: getRetainedHoldings(row['oclcNumber']), axis=1)    
      
     return saveFile(bucket, key + "_updated", csv_read)
 
-def checkInstitutionRetentions (event, context):
+## file contains OCLC Numbers
+def checkInstitutionRetentionsbyOCLCNumber(event, context):
+    item_file = readFile(event)
+    csv_read = loadCSV(item_file)
+    csv_read[['oclcnumber', 'accession_numbers', 'barcodes' 'locations', 'status']] = csv_read.apply (lambda row: getMyLibraryRetainedHoldings(row['oclcNumber']), axis=1)    
+    return saveFile(bucket, key + "_updated", csv_read)    
     
-    bucket = event['Records'][0]['s3']['bucket']['name']
-    key = event['Records'][0]['s3']['object']['key']
-    # need to get the file from S3
-    response = s3.get_object(Bucket=bucket, Key=key)  
-    item_file = response['Body'].read().decode('utf-8')
-    csv_read = pd.read_csv(item_file, sep="|", dtype={'Item_Call_Number': 'object'}, index_col=False)
+
+## file contains OCLC Symbols
+def getInstitutionRetentions (event, context):
+    item_file = readFile(event)
+    csv_read = loadCSV(item_file)
     
     for index, row in csv_read.iterrows():
         #make a new file for each institution

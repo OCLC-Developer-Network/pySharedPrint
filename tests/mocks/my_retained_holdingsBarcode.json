@@ -1,0 +1,29 @@
+{
+    "numberOfHoldings": 1,
+    "detailedHoldings": [{
+        "lhrControlNumber": "122418193",
+        "lhrDateEntered": "20190919",
+        "lhrLastUpdated": "20190919",
+        "oclcNumber": "544175",
+        "format": "zu",
+        "location": {
+            "holdingLocation": "OCWMS",
+            "sublocationCollection": "MAIN",
+            "shelvingLocation": "MAIN-STACKS"
+        },
+        "callNumber": {
+            "displayCallNumber": "PS1034 .C5 1897",
+            "classificationPart": "PS1034 .C5 1897"
+        },
+        "hasSharedPrintCommitment": "Y",
+        "sharedPrintCommitments": [{
+            "actionNote": "committed to retain",
+            "institution": "5966",
+            "dateOfAction": "20170617",
+            "authorization": "EMPIRE",
+            "uri": "http://papr.crl.edu/program/"
+        }],
+        "summary": "Local Holdings Available.",
+        "holdingParts": [{"pieceDesignation": "305100416722V"}]
+    }]
+}

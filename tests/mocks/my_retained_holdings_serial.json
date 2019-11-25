@@ -1,0 +1,46 @@
+{
+    "numberOfHoldings": 1,
+    "detailedHoldings": [{
+        "lhrControlNumber": "222309835",
+        "lhrDateEntered": "20190409",
+        "lhrLastUpdated": "20190409",
+        "oclcNumber": "456314438",
+        "format": "vd cvaizq",
+        "location": {
+            "holdingLocation": "OCWMS",
+            "sublocationCollection": "EAST"
+        },
+        "callNumber": {
+            "displayCallNumber": "PN1997 .F753 2009",
+            "classificationPart": "PN1997",
+            "itemParts": [".F753 2009"]
+        },
+        "hasSharedPrintCommitment": "Y",
+        "sharedPrintCommitments": [{
+            "actionNote": "committed to retain",
+            "institution": "5966",
+            "dateOfAction": "20170617",
+            "authorization": "EMPIRE",
+            "uri": "http://papr.crl.edu/program/"
+        }],
+        "summary": "v. 122",
+        "holdingParts": [
+            {
+                "linkingAndSequenceNumber": "0",
+                "textualHoldings": "v. 122"
+            },
+            {
+                "summaryOfHoldings": "v. 333",
+                "itemMaterialSpecified": "v. 333",
+                "pieceDesignation": "1234567890",
+                "publicNotes": ["Will not lend"]
+            },
+            {
+                "summaryOfHoldings": "v. 444",
+                "itemMaterialSpecified": "v. 444",
+                "pieceDesignation": "0987654321",
+                "publicNotes": ["Will not lend"]
+            }
+        ]
+    }]
+}
