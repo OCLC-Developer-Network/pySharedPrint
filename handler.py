@@ -9,6 +9,7 @@ import requests
 import os
 from io import StringIO
 from pandas.tests.groupby.test_index_as_string import series
+from pickle import NONE
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 credentials = boto3.Session().get_credentials()
@@ -211,7 +212,7 @@ def getMyLibraryHoldings(identifierType, identifierValue):
         
 def getMyLibraryRetainedHoldings(oclcSymbol, identifier):
     request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclcSymbol
-    if identifier['type'] == "oclcNumber":
+    if identifier['type'] == "oclcnumber":
         request_url += "&oclcNumber=" + identifier['value']
     elif identifier['type'] == "barcode":
         request_url += "&barcode=" + identifier['value']
@@ -229,6 +230,8 @@ def getMyLibraryRetainedHoldings(oclcSymbol, identifier):
                 accession_numbers = ",".join(accession_numberList)
                 
                 lhrHoldingParts = list(map(lambda row: row.get('holdingParts'), LHRList))
+                
+                lhrHoldingParts = [i for i in lhrHoldingParts if i]                 
                 holdingParts = [y for x in lhrHoldingParts for y in x]
                        
                 barcodeList = map(lambda row: row.get('pieceDesignation'), holdingParts)
@@ -239,28 +242,28 @@ def getMyLibraryRetainedHoldings(oclcSymbol, identifier):
                 oclcnumberList = list(set(oclcnumberList))
                 oclcnumbers = ",".join(oclcnumberList)
                 
-                holdingsList = map(lambda row: row.get('location').get('holdingLocation') + "-" + row.get('location').get('sublocationCollection') + "-" + row.get('location').get('shelvingLocation'), LHRList)
+                holdingsList = map(lambda row: parseLocation(row), LHRList)
                 holdingsList = list(set(holdingsList))
                 retained_holdings = ",".join(holdingsList) 
             else:
-                accession_number = ""
-                barcode = ""
-                oclcnumber = ""
+                accession_numbers = ""
+                barcodes = ""
+                oclcnumbers = ""
                 retained_holdings = "none"                
             status = "success"
         except json.decoder.JSONDecodeError:
-            accession_number = ""
-            barcode = ""
-            oclcnumber = ""
+            accession_numbers = ""
+            barcodes = ""
+            oclcnumbers = ""
             retained_holdings = "none"                  
             status = "failed"
     except requests.exceptions.HTTPError as err:
-        accession_number = ""
-        barcode = ""
-        oclcnumber = ""
+        accession_numbers = ""
+        barcodes = ""
+        oclcnumbers = ""
         retained_holdings = "none"      
         status = "failed"
-    return pd.Series([oclcnumber, accession_number, barcode, retained_holdings, status])
+    return pd.Series([oclcnumbers, accession_numbers, barcodes, retained_holdings, status])
     
 def getLibraryRetainedHoldings(df, oclc_symbol):
     request_url = serviceURL + base_path + "/retained-holdings?heldBy=" + oclc_symbol
@@ -287,7 +290,13 @@ def getLibraryRetainedHoldings(df, oclc_symbol):
         status = "failed"
     
     return df
-
+def parseLocation(LHR):
+    if LHR.get('location').get('holdingLocation') and LHR.get('location').get('sublocationCollection') and LHR.get('location').get('shelvingLocation'):
+        location = LHR.get('location').get('holdingLocation') + "-" + LHR.get('location').get('sublocationCollection') + "-" + LHR.get('location').get('shelvingLocation')
+    else:
+        location = ""    
+    return location
+    
 def readFile(event):
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
