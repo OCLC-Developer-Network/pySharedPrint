@@ -44,20 +44,36 @@ $ . venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Step 4: Use npm to install dependencies needed to deploy code
+### Step 4: Run local tests
+
+```
+python -m pytest
+```
+
+### Step 5: Run code locally
+
+```
+python checkHoldingsByOCLCNumber.py
+
+python checkSPByOCLCNumber.py
+
+python checkInstitutionRetentionsbyOCLCNumber.py
+
+python getInstitutionRetentions.py
+
+
+```
+
+## Running in AWS Lambda
+
+### Step 1: Use npm to install dependencies needed to deploy code
 Download node and npm and use the `install` command to read the dependencies JSON file 
 
 ```bash
 $ npm install
 ```
 
-### Step 5: Run local tests
-
-```
-python -m pytest
-```
-
-### Step 6: AWS Setup
+### Step 2: AWS Setup
 
 1. Install AWS Command line tools
 - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
@@ -69,14 +85,14 @@ I recommend using pip.
 -- key/secret
 -- region
     
-### Step 7: Create an S3 Bucket for the files
+### Step 3: Create an S3 Bucket for the files
 1. Use the AWS Console to create a bucket. Note your bucket name!!!
 2. Create folder collection_analysis/
 3. Add a sample csv file named holdingsByOCLCNumber.csv with data to check for holdings
 4.Add a sample csv file named retainedholdingsByOCLCNumber.csv with data to check for retained holdings
 
 
-### Step 8: Test application
+### Step 4: Test application locally
 1. Alter s3-getHoldings.json to point to your bucket and your sample txt file.
 
 2. Use serverless to test locally
@@ -93,10 +109,7 @@ serverless invoke local --function findUsers --path s3-getHoldings.json
 serverless invoke local --function getUsers --path s3-getRetainedHoldings.json
 ```
 
-## Installing in AWS Lambda
-
-1. Download and setup the application, see Installing locally
-2. Deploy the code using serverless
+### Step 5: Deploy the code using serverless
 
 ```bash
 $ serverless deploy
