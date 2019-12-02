@@ -2,22 +2,13 @@
 
 Custom application looks for new files in particular folders an S3 bucket and interacts with the API for shared print data based on the data in the delimited file
 
-## Supposed use cases
+## Use cases
 
-Obtained list of libraries holding given OCLC Number
-
-Obtain list of libraries with retention by OCLC Number by group or state
-- Library identifies a group of records that are no longer in their library (e.g. via an inventory project) or have become damaged (e.g. water damage), and wishes to see who else in EAST owns these records, and if any of them are already under retention.  If under retention elsewhere retrieve 583 |3 (holdings). 
-
-
-Obtain retained holdings for OCLC Symbol given by OCLC Number
-- Confirm retentions in local catalog match what is recorded in OCLC.  (Search list of OCLC numbers and see if Shared Print flag set for that library) 
-
-
-Obtain retained holdings for OCLC Symbol
-How many unique retentions does a library have?   Are any of those uniquely held in EAST retained in other programs?  Also confirm number held in US (is it really rare or not). (Search list of OCLC numbers and return number of EAST retentions, other retentions and US holdings on each.)
-
-Retrieve all OCLC numbers (current and merged record numbers) associated with a retention.  
+1. Obtained list of libraries holding given OCLC Number
+2. Obtain list of libraries with retention by OCLC Number by group or state 
+3. Obtain retained holdings for OCLC Symbol given by OCLC Number 
+4. Obtain all retained holdings for a given OCLC Symbol
+5. Retrieve all OCLC numbers (current and merged record numbers) associated with a retention.  
 
 ## Installing Locally
 
@@ -33,34 +24,44 @@ Change into the application directory
 
 ### Step 2: Setup Virtual Environment
 
-```
+```bash
 $ python -m venv venv
 $ . venv/bin/activate
 ```
 
 ### Step 3: Install python dependencies
 
-```
-pip install -r requirements.txt
+```bash
+$ pip install -r requirements.txt
 ```
 
 ### Step 4: Run local tests
 
-```
-python -m pytest
+```bash
+$ python -m pytest
 ```
 
 ### Step 5: Run code locally
+```bash
+usage: getData.py [-h] --itemFile ITEMFILE --operation
+                  {retrieveMergedOCLCNumbers,retrieveHoldingsByOCLCNumber,retrieveSPByOCLCNumber,retrieveInstitutionRetentionsbyOCLCNumber,retrieveAllInstitutionRetentions}
+                  --outputDir OUTPUTDIR
 
+optional arguments:
+  -h, --help            show this help message and exit
+  --itemFile ITEMFILE   File you want to process
+  --operation {retrieveMergedOCLCNumbers,retrieveHoldingsByOCLCNumber,retrieveSPByOCLCNumber,retrieveInstitutionRetentionsbyOCLCNumber,retrieveAllInstitutionRetentions}
+                        Operation to run: retrieveMergedOCLCNumbers,
+                        retrieveHoldingsByOCLCNumber, retrieveSPByOCLCNumber,
+                        retrieveInstitutionRetentionsbyOCLCNumber,
+                        retrieveAllInstitutionRetentions
+  --outputDir OUTPUTDIR
+                        Directory to save output to
 ```
-python checkHoldingsByOCLCNumber.py
 
-python checkSPByOCLCNumber.py
-
-python checkInstitutionRetentionsbyOCLCNumber.py
-
-python getInstitutionRetentions.py
-
+#### Example
+```bash
+$ python getData.py --itemFile samples/oclcNumbers.csv --operation retrieveMergedOCLCNumbers --outputDir samples/results
 
 ```
 
@@ -98,7 +99,7 @@ I recommend using pip.
 2. Use serverless to test locally
 
 ```bash
-serverless invoke local --function findUsers --path s3-getHoldings.json
+$ serverless invoke local --function findUsers --path s3-getHoldings.json
 ```
 
 3. Alter s3-getRetainedHoldings.json to point to your bucket and your sample csv file.
@@ -106,7 +107,7 @@ serverless invoke local --function findUsers --path s3-getHoldings.json
 4. Use serverless to test locally
 
 ```bash
-serverless invoke local --function getUsers --path s3-getRetainedHoldings.json
+$ serverless invoke local --function getUsers --path s3-getRetainedHoldings.json
 ```
 
 ### Step 5: Deploy the code using serverless
