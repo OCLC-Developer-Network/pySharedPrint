@@ -1,12 +1,7 @@
-import boto3
 import yaml
 import os
 from src import handle_files, process_data, make_requests
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-
-credentials = boto3.Session().get_credentials()
-
-s3 = boto3.client('s3')
 
 # load key/secret config info
 # read a configuration file
