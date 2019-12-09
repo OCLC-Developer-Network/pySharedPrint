@@ -4,7 +4,7 @@ from .make_requests import *
 import pandas as pd
 
 def retrieveMergedOCLCNumbers(processConfig, item_file, fileInfo):
-    csv_read = loadCSV(item_file)
+    csv_read = handle_files.loadCSV(item_file)
     csv_read[['oclcnumber', 'mergedOCNs']] = csv_read.apply (lambda row: make_requests.getMergedOCLCNumbers(processConfig, row['oclcNumber']), axis=1)    
          
     if (fileInfo['output_dir'] == 's3'):
@@ -14,7 +14,7 @@ def retrieveMergedOCLCNumbers(processConfig, item_file, fileInfo):
 
 
 def retrieveHoldingsByOCLCNumber(processConfig, item_file, fileInfo):
-    csv_read = loadCSV(item_file)
+    csv_read = handle_files.loadCSV(item_file)
     csv_read[['oclcnumber', 'total_holding_count', 'holding_symbols', 'status']] = csv_read.apply (lambda row: make_requests.getHoldings(processConfig, row['oclcNumber']), axis=1)    
          
     if (fileInfo['output_dir'] == 's3'):
@@ -24,7 +24,7 @@ def retrieveHoldingsByOCLCNumber(processConfig, item_file, fileInfo):
 
 ## file contains OCLC Numbers
 def retrieveSPByOCLCNumber(processConfig, item_file, fileInfo):  
-    csv_read = loadCSV(item_file)
+    csv_read = handle_files.loadCSV(item_file)
     csv_read[['oclcnumber', 'total_holding_count', 'retained_symbols', 'status']] = csv_read.apply (lambda row: make_requests.getRetainedHoldings(processConfig, row['oclcNumber']), axis=1)    
      
     if (fileInfo['output_dir'] == 's3'):
@@ -33,7 +33,7 @@ def retrieveSPByOCLCNumber(processConfig, item_file, fileInfo):
         return saveFileLocal(csv_read, fileInfo['output_dir'])
 
 def retrieveInstitutionRetentionsbyOCLCNumber(processConfig, item_file, fileInfo):
-    csv_read = loadCSV(item_file)
+    csv_read = handle_files.loadCSV(item_file)
     csv_read[['oclcnumber', 'accession_numbers', 'barcodes' 'locations', 'status']] = csv_read.apply (lambda row: make_requests.getMyLibraryRetainedHoldings(processConfig, row['oclcNumber']), axis=1)
     
     if (fileInfo['output_dir'] == 's3'):
@@ -42,7 +42,7 @@ def retrieveInstitutionRetentionsbyOCLCNumber(processConfig, item_file, fileInfo
         return saveFileLocal(csv_read, fileInfo['output_dir'])
 
 def retrieveAllInstitutionRetentions(processConfig, item_file, fileInfo):    
-    csv_read = loadCSV(item_file)
+    csv_read = handle_files.loadCSV(item_file)
     
     for index, row in csv_read.iterrows():
         #make a new file for each institution
