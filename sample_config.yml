@@ -1,0 +1,7 @@
+key: key
+secret: secret
+auth_url: https://oauth.oclc.org/auth
+token_url: https://oauth.oclc.org/token
+discovery_service_url: https://americas.api.oclc.org/discovery
+base_path: /v1/worldcat
+institution_symbol: OCPSB

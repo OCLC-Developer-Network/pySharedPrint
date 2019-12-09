@@ -5,4 +5,5 @@
 /.project
 /.pydevproject
 /int_config.yml
+/src/__pycache__/
 /tests/__pycache__/

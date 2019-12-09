@@ -2,7 +2,7 @@ import pytest
 import json
 import requests_mock
 import pandas
-import handler
+from src import make_requests
 
 with open('tests/mocks/myholdingsOCLCNumber.json', 'r') as myfile:
     data=myfile.read()
@@ -54,10 +54,11 @@ with open('tests/mocks/my_holdings_notfound.json', 'r') as myfile:
 # parse file
 my_holdings_notfound = json.loads(data)
 
-def test_getMyLibraryHoldingsOCLCNumber(requests_mock):
+def test_getMyLibraryHoldingsOCLCNumber(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "70775700"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber)
-    holdings = handler.getMyLibraryHoldings("oclcnumber", oclcNumber)
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "oclcnumber", oclcNumber)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '70775700'
     assert len(holdings[1].split(',')) == 2
@@ -70,10 +71,11 @@ def test_getMyLibraryHoldingsOCLCNumber(requests_mock):
     assert len(holdings[4].split(',')) == 2 
     assert holdings[5] == 'success'
     
-def test_getMyLibraryHoldingsOCLCNumberSerial(requests_mock):
+def test_getMyLibraryHoldingsOCLCNumberSerial(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "2445677"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber_serial)
-    holdings = handler.getMyLibraryHoldings("oclcnumber", oclcNumber)
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "oclcnumber", oclcNumber)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '2445677'
     assert len(holdings[1].split(',')) == 10
@@ -92,10 +94,11 @@ def test_getMyLibraryHoldingsOCLCNumberSerial(requests_mock):
     assert len(holdings[4].split(',')) == 2
     assert holdings[5] == 'success'     
 
-def test_getMyLibraryHoldingsBarcode(requests_mock):
+def test_getMyLibraryHoldingsBarcode(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "CR963528"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_barcode)
-    holdings = handler.getMyLibraryHoldings("barcode", barcode)
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "barcode", barcode)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "246197114"
     assert holdings[1] == '132422447'
@@ -105,10 +108,11 @@ def test_getMyLibraryHoldingsBarcode(requests_mock):
     assert len(holdings[4].split(',')) == 1 
     assert holdings[5] == 'success' 
     
-def test_getMyLibraryHoldingsAccessionNumber(requests_mock):
+def test_getMyLibraryHoldingsAccessionNumber(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "132422447"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings)
-    holdings = handler.getMyLibraryHoldings("accession_number", accession_number);
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "246197114"
     assert holdings[1] == '132422447'
@@ -118,10 +122,11 @@ def test_getMyLibraryHoldingsAccessionNumber(requests_mock):
     assert len(holdings[4].split(',')) == 1 
     assert holdings[5] == 'success'
     
-def test_getMyLibraryHoldingsAccessionNumberSerial(requests_mock):
+def test_getMyLibraryHoldingsAccessionNumberSerial(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "223603680"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial)
-    holdings = handler.getMyLibraryHoldings("accession_number", accession_number);
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "2445677"
     assert holdings[1] == '223603680'
@@ -131,10 +136,11 @@ def test_getMyLibraryHoldingsAccessionNumberSerial(requests_mock):
     assert len(holdings[4].split(',')) == 1 
     assert holdings[5] == 'success'
     
-def test_getMyLibraryHoldingsAccessionNumberSerial2(requests_mock):
+def test_getMyLibraryHoldingsAccessionNumberSerial2(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "223604491"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial2)
-    holdings = handler.getMyLibraryHoldings("accession_number", accession_number);
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "2445677"
     assert holdings[1] == '223604491'
@@ -147,10 +153,11 @@ def test_getMyLibraryHoldingsAccessionNumberSerial2(requests_mock):
     
 ## need a test for a serial with multiple holding parts and barcodes     
     
-def test_getMyLibraryHoldings_None(requests_mock):
+def test_getMyLibraryHoldings_None(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "CR963528"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_none)
-    holdings = handler.getMyLibraryHoldings("barcode", barcode);
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "barcode", barcode);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == ""
     assert holdings[1] == ""
@@ -159,10 +166,11 @@ def test_getMyLibraryHoldings_None(requests_mock):
     assert holdings[4] == "none"
     assert holdings[5] == 'success'
 
-def test_getMyLibraryHoldingsAccessionNumber_notFound(requests_mock):
+def test_getMyLibraryHoldingsAccessionNumber_notFound(requests_mock, mockOAuthSession, getTestConfig):
+    getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "1"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_notfound)
-    holdings = handler.getMyLibraryHoldings("accession_number", accession_number);
+    holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == ""
     assert holdings[1] == ""
