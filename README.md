@@ -90,7 +90,7 @@ I recommend using pip.
 1. Use the AWS Console to create a bucket. Note your bucket name!!!
 2. Create folder collection_analysis/
 3. Add a sample csv file named holdingsByOCLCNumber.csv with data to check for holdings
-4.Add a sample csv file named retainedholdingsByOCLCNumber.csv with data to check for retained holdings
+4. Add a sample csv file named retainedholdingsByOCLCNumber.csv with data to check for retained holdings
 
 
 ### Step 4: Test application locally
@@ -99,7 +99,7 @@ I recommend using pip.
 2. Use serverless to test locally
 
 ```bash
-$ serverless invoke local --function findUsers --path s3-getHoldings.json
+$ serverless invoke local --function checkHoldingsByOCLCNumber --path s3-getHoldings.json
 ```
 
 3. Alter s3-getRetainedHoldings.json to point to your bucket and your sample csv file.
@@ -107,7 +107,7 @@ $ serverless invoke local --function findUsers --path s3-getHoldings.json
 4. Use serverless to test locally
 
 ```bash
-$ serverless invoke local --function getUsers --path s3-getRetainedHoldings.json
+$ serverless invoke local --function checkSPByOCLCNumber --path s3-getRetainedHoldings.json
 ```
 
 ### Step 5: Deploy the code using serverless
