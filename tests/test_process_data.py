@@ -2,6 +2,7 @@ import pytest
 import json
 import requests_mock
 import io
+import pandas
 
 from src import process_data
 
@@ -60,6 +61,7 @@ def test_retrieveMergedOCLCNumbers(mockOAuthSession, getTestConfig, tmpdir, requ
     fileInfo = {"output_dir": output_dir}
     getTestConfig.update({"oauth-session": mockOAuthSession})
     result = process_data.retrieveMergedOCLCNumbers(getTestConfig, item_file, fileInfo)
+    assert result == "success"
                               
 def test_retrieveHoldingsByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     oclcSymbol = "OCPSB"
@@ -70,6 +72,7 @@ def test_retrieveHoldingsByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, r
     fileInfo = {"output_dir": output_dir}     
     getTestConfig.update({"oauth-session": mockOAuthSession})
     result = process_data.retrieveHoldingsByOCLCNumber(getTestConfig, item_file, fileInfo, heldBy=oclcSymbol)
+    assert result == "success"    
     
 def test_retrieveSPByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     heldInState = "CA"
@@ -80,6 +83,7 @@ def test_retrieveSPByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, request
     fileInfo = {"output_dir": output_dir}    
     getTestConfig.update({"oauth-session": mockOAuthSession})
     result = process_data.retrieveSPByOCLCNumber(getTestConfig, item_file, fileInfo, heldInState=heldInState)
+    assert result == "success"    
     
 def test_retrieveInstitutionRetentionsbyOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     oclcSymbol = 'CCO'
@@ -90,6 +94,7 @@ def test_retrieveInstitutionRetentionsbyOCLCNumber(mockOAuthSession, getTestConf
     fileInfo = {"output_dir": output_dir}    
     getTestConfig.update({"oauth-session": mockOAuthSession}) 
     result = process_data.retrieveInstitutionRetentionsbyOCLCNumber(getTestConfig, item_file, fileInfo, oclcSymbol)
+    assert result == "success"    
 
 def test_retrieveAllInstitutionRetentions(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?heldBy=CCO', status_code=200, json=retained_holdings_institution)    
@@ -98,5 +103,6 @@ def test_retrieveAllInstitutionRetentions(mockOAuthSession, getTestConfig, tmpdi
     output_dir = tmpdir / "output.txt"
     fileInfo = {"output_dir": output_dir}
     getTestConfig.update({"oauth-session": mockOAuthSession})
-    process_data.retrieveAllInstitutionRetentions(getTestConfig, item_file, fileInfo)       
+    result = process_data.retrieveAllInstitutionRetentions(getTestConfig, item_file, fileInfo)
+    assert result == "success"       
                                  

@@ -38,3 +38,4 @@ def readFileFromLocal(pathToFile):
 
 def saveFileLocal(pandasDataFrame, output_dir):
     pandasDataFrame.to_csv(output_dir, index=False)   
+    return "success"
