@@ -18,7 +18,7 @@ def createOAuthSession(config, scope):
 def getMergedOCLCNumbers(config, oclcnumber):
     oauth_session = config.get('oauth-session')
     try:
-        r = oauth_session.get(config.get('discovery_service_url') + config.get('base_path') +"/bibs/" + oclcnumber, headers={"Accept":"application/json"})
+        r = oauth_session.get(config.get('discovery_service_url') + config.get('base_path') +"/bibs/" + str(oclcnumber), headers={"Accept":"application/json"})
         r.raise_for_status
         try:
             result = r.json()
@@ -38,7 +38,7 @@ def getMergedOCLCNumbers(config, oclcnumber):
 def getBriefHoldings(config, oclcnumber, heldInCountry):
     oauth_session = config.get('oauth-session')
     try:
-        r = oauth_session.get(config.get('discovery_service_url') + config.get('base_path') +"/bibs-holdings?oclcNumber=" + oclcnumber + "&heldInCountry=" + heldInCountry, headers={"Accept":"application/json"})
+        r = oauth_session.get(config.get('discovery_service_url') + config.get('base_path') +"/bibs-holdings?oclcNumber=" + str(oclcnumber) + "&heldInCountry=" + heldInCountry, headers={"Accept":"application/json"})
         r.raise_for_status
         try:
             result = r.json()
@@ -61,14 +61,14 @@ def getBriefHoldings(config, oclcnumber, heldInCountry):
         status = "failed"
     return pd.Series([oclcnumber, total_holding_count, holdings, status])
 
-def getHoldings(config, oclcnumber, heldByGroup="", heldby=""):
+def getHoldings(config, oclcnumber, heldByGroup="", heldBy=""):
     oauth_session = config.get('oauth-session')
     try:
-        request_url = config.get('discovery_service_url') + config.get('base_path') + "/bibs-detailed-holdings?oclcNumber=" + oclcnumber
+        request_url = config.get('discovery_service_url') + config.get('base_path') + "/bibs-detailed-holdings?oclcNumber=" + str(oclcnumber)
         if heldByGroup:
              request_url +="&heldByGroup=" + heldByGroup
         else:
-            request_url +="&heldBy=" + heldby
+            request_url +="&heldBy=" + heldBy
         r = oauth_session.get(request_url, headers={"Accept":"application/json"})
         r.raise_for_status
         try:
@@ -95,7 +95,7 @@ def getHoldings(config, oclcnumber, heldByGroup="", heldby=""):
 
 def getRetainedHoldings(config, oclcnumber, heldByGroup="", heldInState=""):
     oauth_session = config.get('oauth-session')
-    request_url = config.get('discovery_service_url') + config.get('base_path') + "/bibs-retained-holdings?oclcNumber=" + oclcnumber
+    request_url = config.get('discovery_service_url') + config.get('base_path') + "/bibs-retained-holdings?oclcNumber=" + str(oclcnumber)
     if heldByGroup:
         request_url +="&heldByGroup=" + heldByGroup
     elif heldInState:
@@ -199,9 +199,9 @@ def getMyLibraryRetainedHoldings(config, oclcSymbol, identifier):
     oauth_session = config.get('oauth-session')
     request_url = config.get('discovery_service_url') + config.get('base_path') + "/retained-holdings?heldBy=" + oclcSymbol
     if identifier['type'] == "oclcnumber":
-        request_url += "&oclcNumber=" + identifier['value']
+        request_url += "&oclcNumber=" + str(identifier['value'])
     elif identifier['type'] == "barcode":
-        request_url += "&barcode=" + identifier['value']
+        request_url += "&barcode=" + str(identifier['value'])
     else:
         request_url = request_url
         

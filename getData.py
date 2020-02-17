@@ -1,5 +1,6 @@
 ## need to import the relevant files
 import argparse
+import yaml
 from src import handle_files, process_data, make_requests
 parser = argparse.ArgumentParser()
 parser.add_argument('--itemFile', required=True, help='File you want to process')

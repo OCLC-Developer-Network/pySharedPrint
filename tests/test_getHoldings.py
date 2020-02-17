@@ -39,7 +39,7 @@ def test_getHoldings_HeldBySymbol(requests_mock, mockOAuthSession, getTestConfig
     oclcNumber = "318877925"
     institution_symbol = "OCPSB"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=holdings_symbol)
-    bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldby=institution_symbol);
+    bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldBy=institution_symbol);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '318877925'
     assert bib[1] == 246
@@ -51,7 +51,7 @@ def test_getHoldings_NoResults(requests_mock, mockOAuthSession, getTestConfig):
     oclcNumber = "2416076"
     institution_symbol = "OCPSB"
     requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=no_detailed_holdings)
-    bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldby=institution_symbol);
+    bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldBy=institution_symbol);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '2416076'
     assert bib[1] == 246
