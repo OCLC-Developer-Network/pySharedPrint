@@ -12,7 +12,7 @@ args = parser.parse_args()
 with open("config.yml", 'r') as stream:
     config = yaml.safe_load(stream)
 
-def process():
+def process(args):
     item_file = handle_files.readFileFromLocal(args.itemFile) 
     
     operation = args.operation
