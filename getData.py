@@ -16,8 +16,8 @@ def processArgs():
     
         args = parser.parse_args()
         return args
-    except SystemExit as err:
-        return err
+    except SystemExit:
+        raise
 
 def process(args):
     item_file = handle_files.readFileFromLocal(args.itemFile) 
@@ -50,6 +50,6 @@ if __name__ == '__getData__':
     try:
         args = processArgs()
         print(process(args))
-    except SystemExit as err:
+    except SystemExit:
         print("Invalid Operation specified")    
     
