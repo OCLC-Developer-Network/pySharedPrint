@@ -30,21 +30,28 @@ def process(args):
     oauth_session = make_requests.createOAuthSession(config, scope)
     
     processConfig = config.update({"oauth-session": oauth_session})
-           
-    if operation == "retrieveMergedOCLCNumbers":
-        result = process_data.retrieveMergedOCLCNumbers(processConfig, item_file, {"output_dir": output_dir})
-    elif operation == "retrieveHoldingsByOCLCNumber":
-        result = process_data.retrieveHoldingsByOCLCNumber(processConfig, item_file, {"output_dir": output_dir})
-    elif operation == "retrieveSPByOCLCNumber":
-        result = process_data.retrieveSPByOCLCNumber(processConfig, item_file, {"output_dir": output_dir})
-    elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
-        result = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, item_file, {"output_dir": output_dir})
-    elif operation == "retrieveAllInstitutionRetentions":
-        result = process_data.retrieveAllInstitutionRetentions(processConfig, item_file, {"output_dir": output_dir})
-    else:
-        result = "Operation not specified"
     
-    return result
+    csv_read = handle_files.loadCSV(item_file) 
+    if operation == "retrieveAllInstitutionRetentions":   
+        results = []        
+        for index, row in csv_read.iterrows():
+            csv_read_institution = process_data.retrieveAllInstitutionRetentions(processConfig, row['symbol'])
+            result = handle_files.saveFileLocal(csv_read_institution, output_dir)
+            results.append(row['symbol'] + ": " + result)
+        
+        return ",".join(results)      
+    else:
+        if operation == "retrieveMergedOCLCNumbers":
+            csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
+        elif operation == "retrieveHoldingsByOCLCNumber":
+            csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read)
+        elif operation == "retrieveSPByOCLCNumber":
+            csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read)
+        elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
+            csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read)        
+    
+        return handle_files.saveFileLocal(csv_read, output_dir)
+    
 
 if __name__ == '__getData__':
     try:

@@ -16,25 +16,40 @@ processConfig = config.update({"oauth-session": oauth_session})
 
 def getMergedOCLCNumbers(event, context):
     item_file = handle_files.readFilesFromBucket(event)
-    return process_data.retrieveMergedOCLCNumbers(processConfig, item_file, {"bucket": bucket, "key": key, "output_dir":'s3'})
+    csv_read = handle_files.loadCSV(item_file)
+    csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
+    handle_files.saveFileToBucket(fileInfo['bucket'], fileInfo['key'] + "_updated", csv_read)
 
 ## file contains OCLC Numbers
 def checkHoldingsByOCLCNumber(event, context):      
     item_file = handle_files.readFilesFromBucket(event)
-    return process_data.retrieveHoldingsByOCLCNumber(processConfig, item_file, {"bucket": bucket, "key": key, "output_dir":'s3'})
+    csv_read = handle_files.loadCSV(item_file)
+    csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read)
+    handle_files.saveFileToBucket(fileInfo['bucket'], fileInfo['key'] + "_updated", csv_read)
 
 ## file contains OCLC Numbers
 def checkSPByOCLCNumber(event, context):  
     item_file = handle_files.readFilesFromBucket(event)
-    return process_data.retrieveSPbyOCLCNumber(processConfig, item_file, {"bucket": bucket, "key": key, "output_dir":'s3'})
+    csv_read = handle_files.loadCSV(item_file)
+    csv_read = process_data.retrieveSPbyOCLCNumber(processConfig, csv_read)
+    handle_files.saveFileToBucket(fileInfo['bucket'], fileInfo['key'] + "_updated", csv_read)
 
 ## file contains OCLC Numbers
 def checkInstitutionRetentionsbyOCLCNumber(event, context):
     item_file = handle_files.readFilesFromBucket(event)
-    return process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, item_file, {"bucket": bucket, "key": key, "output_dir":'s3'})    
+    csv_read = handle_files.loadCSV(item_file)
+    csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read) 
+    handle_files.saveFileToBucket(fileInfo['bucket'], fileInfo['key'] + "_updated", csv_read)   
 
 ## file contains OCLC Symbols
 def getInstitutionRetentions(event, context):
     item_file = handle_files.readFilesFromBucket(event)
-    return process_data.retrieveAllInstitutionRetentions(processConfig, item_file, {"bucket": bucket, "key": key, "output_dir":'s3'})    
+    csv_read = handle_files.loadCSV(item_file)  
+    results = []  
+    for index, row in csv_read.iterrows():
+        retained_holdings = process_data.retrieveAllInstitutionRetentions(processConfig, row['symbol'])
+        result = handle_files.saveFileToBucket(fileInfo['bucket'], fileInfo['key'] + "_"+ row['symbol'] + "_retained", retained_holdings)
+        results.append(row['symbol'] + ": " + result)
+    
+    return ",".join(results)    
   

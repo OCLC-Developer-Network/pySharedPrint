@@ -1,5 +1,6 @@
 import pytest
 import sys
+import io
 import getData
 from src import handle_files, process_data, make_requests
 
@@ -51,9 +52,10 @@ def testProcessMissingArgumentOutputDir(mocker, capfd):
     assert "error: the following arguments are required: --outputDir" in captured.err
     
 def testProcessRetrieveMergedOCLCNumbers(mocker, mockOAuthSession):
-    mocker.patch("src.handle_files.readFileFromLocal", return_value="oclcNumber\n2416076\n318877925\n829387251\n55887559\n70775700\n466335791\n713567391\n84838876\n960238778\n893163693")
+    mocker.patch("src.handle_files.readFileFromLocal", return_value=io.StringIO("oclcNumber\n2416076\n318877925\n829387251\n55887559\n70775700\n466335791\n713567391\n84838876\n960238778\n893163693"))
     mocker.patch("src.make_requests.createOAuthSession", return_value=mockOAuthSession)
     mocker.patch('src.process_data.retrieveMergedOCLCNumbers', return_value='success')
+    mocker.patch('src.handle_files.saveFileLocal', return_value='success')
     mocker.patch('sys.argv', ["", "--itemFile", "samples/oclc_numbers.csv", "--operation", "retrieveMergedOCLCNumbers", "--outputDir", "samples/results"])    
     args = getData.processArgs()
     result = getData.process(args);
