@@ -8,13 +8,16 @@ with open("config.yml", 'r') as stream:
     config = yaml.safe_load(stream)
     
 def processArgs():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--itemFile', required=True, help='File you want to process')
-    parser.add_argument('--operation', required=True, choices=['retrieveMergedOCLCNumbers', 'retrieveHoldingsByOCLCNumber', 'retrieveSPByOCLCNumber', 'retrieveInstitutionRetentionsbyOCLCNumber', 'retrieveAllInstitutionRetentions'], help='Operation to run: retrieveMergedOCLCNumbers, retrieveHoldingsByOCLCNumber, retrieveSPByOCLCNumber, retrieveInstitutionRetentionsbyOCLCNumber, retrieveAllInstitutionRetentions')    
-    parser.add_argument('--outputDir', required=True, help='Directory to save output to')
-
-    args = parser.parse_args()
-    return args
+    try:
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--itemFile', required=True, help='File you want to process')
+        parser.add_argument('--operation', required=True, choices=['retrieveMergedOCLCNumbers', 'retrieveHoldingsByOCLCNumber', 'retrieveSPByOCLCNumber', 'retrieveInstitutionRetentionsbyOCLCNumber', 'retrieveAllInstitutionRetentions'], help='Operation to run: retrieveMergedOCLCNumbers, retrieveHoldingsByOCLCNumber, retrieveSPByOCLCNumber, retrieveInstitutionRetentionsbyOCLCNumber, retrieveAllInstitutionRetentions')    
+        parser.add_argument('--outputDir', required=True, help='Directory to save output to')
+    
+        args = parser.parse_args()
+        return args
+    except SystemExit as err:
+        return err
 
 def process(args):
     item_file = handle_files.readFileFromLocal(args.itemFile) 
@@ -24,7 +27,7 @@ def process(args):
     
     # get a token
     scope = ['DISCOVERY']
-    oauth_session = make_requests.createOAuthSession(key, secret, scope)
+    oauth_session = make_requests.createOAuthSession(config, scope)
     
     processConfig = config.update({"oauth-session": oauth_session})
            
@@ -44,5 +47,9 @@ def process(args):
     return result
 
 if __name__ == '__getData__':
-    args = processArgs()
-    process(args)
+    try:
+        args = processArgs()
+        print(process(args))
+    except SystemExit as err:
+        print("Invalid Operation specified")    
+    

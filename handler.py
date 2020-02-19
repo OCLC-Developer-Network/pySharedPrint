@@ -10,7 +10,7 @@ with open("config.yml", 'r') as stream:
      
 # get a token
 scope = ['DISCOVERY']
-oauth_session = make_requests.createOAuthSession(key, secret, scope)
+oauth_session = make_requests.createOAuthSession(config, scope)
 
 processConfig = config.update({"oauth-session": oauth_session})
 
