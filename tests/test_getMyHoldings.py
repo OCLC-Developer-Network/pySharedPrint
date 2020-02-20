@@ -57,7 +57,7 @@ my_holdings_notfound = json.loads(data)
 def test_getMyLibraryHoldingsOCLCNumber(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "70775700"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "oclcnumber", oclcNumber)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '70775700'
@@ -74,7 +74,7 @@ def test_getMyLibraryHoldingsOCLCNumber(requests_mock, mockOAuthSession, getTest
 def test_getMyLibraryHoldingsOCLCNumberSerial(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "2445677"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber_serial)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings?oclcNumber=' + oclcNumber, status_code=200, json=my_holdings_oclcnumber_serial)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "oclcnumber", oclcNumber)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '2445677'
@@ -97,7 +97,7 @@ def test_getMyLibraryHoldingsOCLCNumberSerial(requests_mock, mockOAuthSession, g
 def test_getMyLibraryHoldingsBarcode(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "CR963528"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_barcode)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_barcode)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "barcode", barcode)
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "246197114"
@@ -111,7 +111,7 @@ def test_getMyLibraryHoldingsBarcode(requests_mock, mockOAuthSession, getTestCon
 def test_getMyLibraryHoldingsAccessionNumber(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "132422447"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings/' + accession_number, status_code=200, json=my_holdings)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "246197114"
@@ -125,7 +125,7 @@ def test_getMyLibraryHoldingsAccessionNumber(requests_mock, mockOAuthSession, ge
 def test_getMyLibraryHoldingsAccessionNumberSerial(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "223603680"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "2445677"
@@ -139,7 +139,7 @@ def test_getMyLibraryHoldingsAccessionNumberSerial(requests_mock, mockOAuthSessi
 def test_getMyLibraryHoldingsAccessionNumberSerial2(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "223604491"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial2)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings/' + accession_number, status_code=200, json=my_holdings_serial2)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "2445677"
@@ -156,7 +156,7 @@ def test_getMyLibraryHoldingsAccessionNumberSerial2(requests_mock, mockOAuthSess
 def test_getMyLibraryHoldings_None(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "CR963528"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_none)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings?barcode=' + barcode, status_code=200, json=my_holdings_none)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "barcode", barcode);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == ""
@@ -169,7 +169,7 @@ def test_getMyLibraryHoldings_None(requests_mock, mockOAuthSession, getTestConfi
 def test_getMyLibraryHoldingsAccessionNumber_notFound(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     accession_number = "1"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/my-holdings/' + accession_number, status_code=200, json=my_holdings_notfound)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/my-holdings/' + accession_number, status_code=200, json=my_holdings_notfound)
     holdings = make_requests.getMyLibraryHoldings(getTestConfig, "accession_number", accession_number);
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == ""

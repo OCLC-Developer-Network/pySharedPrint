@@ -33,7 +33,7 @@ def test_getMyLibraryRetainedHoldingsOCLCNumber(requests_mock, mockOAuthSession,
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "156891904"
     oclcSymbol = "OCWMS"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?oclcNumber=' + oclcNumber + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_oclcnumber)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?oclcNumber=' + oclcNumber + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_oclcnumber)
     holdings = make_requests.getMyLibraryRetainedHoldings(getTestConfig, oclcSymbol, {"type": "oclcnumber", "value": oclcNumber})
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '156891904'
@@ -47,7 +47,7 @@ def test_getMyLibraryRetainedHoldingsOCLCNumberSerial(requests_mock, mockOAuthSe
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "456314438"
     oclcSymbol = "OCWMS"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?oclcNumber=' + oclcNumber + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_serial)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?oclcNumber=' + oclcNumber + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_serial)
     holdings = make_requests.getMyLibraryRetainedHoldings(getTestConfig, oclcSymbol, {"type": "oclcnumber", "value": oclcNumber})
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == '456314438'
@@ -63,7 +63,7 @@ def test_getMyLibraryRetainedHoldingsBarcode(requests_mock, mockOAuthSession, ge
     getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "305100416722V"
     oclcSymbol = "OCWMS"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?barcode=' + barcode + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_barcode)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?barcode=' + barcode + "&heldBy=" + oclcSymbol, status_code=200, json=my_retained_holdings_barcode)
     holdings = make_requests.getMyLibraryRetainedHoldings(getTestConfig, oclcSymbol, {"type": "barcode", "value": barcode})
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == "544175"
@@ -78,7 +78,7 @@ def test_getMyLibraryRetainedHoldings_None(requests_mock, mockOAuthSession, getT
     getTestConfig.update({'oauth-session': mockOAuthSession})
     barcode = "CR963528"
     oclcSymbol = "OCWMS"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?barcode=' + barcode + "&heldBy=" + oclcSymbol, status_code=200, json=my_retainedholdings_none)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?barcode=' + barcode + "&heldBy=" + oclcSymbol, status_code=200, json=my_retainedholdings_none)
     holdings = make_requests.getMyLibraryRetainedHoldings(getTestConfig, oclcSymbol, {"type": "barcode", "value": barcode});
     assert type(holdings) is pandas.core.series.Series
     assert holdings[0] == ""

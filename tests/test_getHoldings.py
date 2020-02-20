@@ -26,7 +26,7 @@ def test_getHoldings_HeldByGroup(requests_mock, mockOAuthSession, getTestConfig)
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "1752384"
     group = "ASRL"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldByGroup=' + group, status_code=200, json=holdings_group)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldByGroup=' + group, status_code=200, json=holdings_group)
     bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldByGroup=group);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '1752384'
@@ -38,7 +38,7 @@ def test_getHoldings_HeldBySymbol(requests_mock, mockOAuthSession, getTestConfig
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "318877925"
     institution_symbol = "OCPSB"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=holdings_symbol)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=holdings_symbol)
     bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldBy=institution_symbol);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '318877925'
@@ -50,7 +50,7 @@ def test_getHoldings_NoResults(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "2416076"
     institution_symbol = "OCPSB"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=no_detailed_holdings)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-detailed-holdings?oclcNumber=' + oclcNumber + '&heldBy=' + institution_symbol, status_code=200, json=no_detailed_holdings)
     bib = make_requests.getHoldings(getTestConfig, oclcNumber, heldBy=institution_symbol);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '2416076'

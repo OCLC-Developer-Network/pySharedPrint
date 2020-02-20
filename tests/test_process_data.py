@@ -51,8 +51,8 @@ retained_holdings_institution = json.loads(data9)
 
 
 def test_retrieveMergedOCLCNumbers(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs/311684437', status_code=200, json=merged_oclcnumbers)
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs/318877925', status_code=200, json=merged_oclcnumbers2)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs/311684437', status_code=200, json=merged_oclcnumbers)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs/318877925', status_code=200, json=merged_oclcnumbers2)
     item_file = io.StringIO("oclcNumber\n311684437\n318877925")
     csv_read = handle_files.loadCSV(item_file) 
     getTestConfig.update({"oauth-session": mockOAuthSession})
@@ -64,8 +64,8 @@ def test_retrieveMergedOCLCNumbers(mockOAuthSession, getTestConfig, tmpdir, requ
                               
 def test_retrieveHoldingsByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     oclcSymbol = "OCPSB"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=318877925&heldBy=' + oclcSymbol, status_code=200, json=institution_holdings)
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-detailed-holdings?oclcNumber=191865523&heldBy=' + oclcSymbol, status_code=200, json=institution_holdings2)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-detailed-holdings?oclcNumber=318877925&heldBy=' + oclcSymbol, status_code=200, json=institution_holdings)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-detailed-holdings?oclcNumber=191865523&heldBy=' + oclcSymbol, status_code=200, json=institution_holdings2)
     item_file = io.StringIO("oclcNumber\n318877925\n191865523")  
     csv_read = handle_files.loadCSV(item_file)    
     getTestConfig.update({"oauth-session": mockOAuthSession})
@@ -76,8 +76,8 @@ def test_retrieveHoldingsByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, r
     
 def test_retrieveSPByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     heldInState = "CA"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-retained-holdings?oclcNumber=776775878&heldInState=' + heldInState, status_code=200, json=retained_byState)
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/bibs-retained-holdings?oclcNumber=1702614&heldInState=' + heldInState, status_code=200, json=retained_byState2)    
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-retained-holdings?oclcNumber=776775878&heldInState=' + heldInState, status_code=200, json=retained_byState)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-retained-holdings?oclcNumber=1702614&heldInState=' + heldInState, status_code=200, json=retained_byState2)    
     item_file = io.StringIO("oclcNumber\n776775878\n1702614")
     csv_read = handle_files.loadCSV(item_file)    
     getTestConfig.update({"oauth-session": mockOAuthSession})
@@ -88,8 +88,8 @@ def test_retrieveSPByOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, request
     
 def test_retrieveInstitutionRetentionsbyOCLCNumber(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
     oclcSymbol = 'CCO'
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?oclcNumber=776775878&heldBy=' + oclcSymbol, status_code=200, json=retained_bySymbol)
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?oclcNumber=1702614&heldBy=' + oclcSymbol, status_code=200, json=retained_bySymbol2)    
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?oclcNumber=776775878&heldBy=' + oclcSymbol, status_code=200, json=retained_bySymbol)
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?oclcNumber=1702614&heldBy=' + oclcSymbol, status_code=200, json=retained_bySymbol2)    
     item_file = io.StringIO("oclcNumber\n776775878\n1702614")
     csv_read = handle_files.loadCSV(item_file)    
     getTestConfig.update({"oauth-session": mockOAuthSession}) 
@@ -100,7 +100,7 @@ def test_retrieveInstitutionRetentionsbyOCLCNumber(mockOAuthSession, getTestConf
     #assert_frame_equal(result, final_result)         
 
 def test_retrieveAllInstitutionRetentions(mockOAuthSession, getTestConfig, tmpdir, requests_mock):
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/v1/worldcat/retained-holdings?heldBy=CCO', status_code=200, json=retained_holdings_institution)    
+    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/retained-holdings?heldBy=CCO', status_code=200, json=retained_holdings_institution)    
     getTestConfig.update({"oauth-session": mockOAuthSession})
     result = process_data.retrieveAllInstitutionRetentions(getTestConfig, 'CCO')
     assert type(result) is pandas.DataFrame
