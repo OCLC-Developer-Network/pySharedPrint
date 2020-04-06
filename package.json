@@ -1,0 +1,14 @@
+{
+  "name": "pySharedPrint",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "serverless deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "serverless": "^1.53.0"
+  }
+}
