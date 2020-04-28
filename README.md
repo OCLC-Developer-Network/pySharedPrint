@@ -57,12 +57,26 @@ optional arguments:
                         retrieveAllInstitutionRetentions
   --outputDir OUTPUTDIR
                         Directory to save output to
+  --heldBy HELDBY
+                        OCLC Symbol of institution to limit to
+  --heldByGroup HELDBYGROUP
+                        Symbol of group to limit to
+  --heldInState HELDINSTATE
+                        Two letter state/province code to limit holdings to                                                                        
+                        
 ```
 
 #### Example
 ```bash
-$ python getData.py --itemFile samples/oclc_numbers.csv --operation retrieveMergedOCLCNumbers --outputDir samples/results
+$ python getData.py --itemFile samples/oclc_numbers.csv --operation retrieveMergedOCLCNumbers --outputDir samples/mergedOCLCNumbers.csv
 
+$ python getData.py --itemFile samples/oclc_numbers_holdings.csv --operation retrieveHoldingsByOCLCNumber --outputDir samples/holdings_results.csv --heldBy CCO
+
+$ python getData.py --itemFile samples/sp_holdings.csv --operation retrieveSPByOCLCNumber --outputDir samples/sp_holdings_results.csv --heldInState CA
+
+$ python getData.py --itemFile samples/my_retentions.csv --operation retrieveInstitutionRetentionsbyOCLCNumber --outputDir samples/my_retentions_CCO.csv --heldBy CCO
+
+$ python getData.py --itemFile samples/symbol_retentions.csv --operation retrieveAllInstitutionRetentions --outputDir samples/my_retentions_CCO.csv
 ```
 
 ## Running in AWS Lambda
