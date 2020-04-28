@@ -61,7 +61,7 @@ optional arguments:
 
 #### Example
 ```bash
-$ python getData.py --itemFile samples/oclcNumbers.csv --operation retrieveMergedOCLCNumbers --outputDir samples/results
+$ python getData.py --itemFile samples/oclc_numbers.csv --operation retrieveMergedOCLCNumbers --outputDir samples/results
 
 ```
 
