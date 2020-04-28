@@ -15,6 +15,9 @@ def processArgs():
         parser.add_argument('--itemFile', required=True, help='File you want to process')
         parser.add_argument('--operation', required=True, choices=['retrieveMergedOCLCNumbers', 'retrieveHoldingsByOCLCNumber', 'retrieveSPByOCLCNumber', 'retrieveInstitutionRetentionsbyOCLCNumber', 'retrieveAllInstitutionRetentions'], help='Operation to run: retrieveMergedOCLCNumbers, retrieveHoldingsByOCLCNumber, retrieveSPByOCLCNumber, retrieveInstitutionRetentionsbyOCLCNumber, retrieveAllInstitutionRetentions')    
         parser.add_argument('--outputDir', required=True, help='Directory to save output to')
+        parser.add_argument('--heldBy', required=False, help='OCLC Symbol to check holdings/retentions for')
+        parser.add_argument('--heldByGroup', required=False, help='Group OCLC Symbol to check holdings/retentions for')
+        parser.add_argument('--heldInState', required=False, help='State to check retentions in')
     
         args = parser.parse_args()
         return args
@@ -26,6 +29,7 @@ def process(args):
     
     operation = args.operation
     output_dir = args.outputDir
+    heldBy = args.heldBy
     
     # get a token
     scope = ['DISCOVERY']
@@ -51,7 +55,7 @@ def process(args):
             elif operation == "retrieveSPByOCLCNumber":
                 csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read)
             elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
-                csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read)        
+                csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read, heldBy)        
         
             return handle_files.saveFileLocal(csv_read, output_dir)
 
