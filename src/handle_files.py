@@ -15,8 +15,8 @@ def readFileFromBucket(event):
     item_file = response['Body'].read().decode('utf-8')
     return item_file    
 
-def loadCSV(item_file, seperator=",", typeArray=None):    
-    csv_read = pd.read_csv(item_file, sep=seperator, dtype=typeArray, index_col=False)
+def loadCSV(item_file, seperator=",", typeArray=None):
+    csv_read = pd.read_csv(StringIO(item_file), sep=seperator, dtype=typeArray, index_col=False)
     return csv_read
 
 def saveFileToBucket(bucket, filename, csv_dict):

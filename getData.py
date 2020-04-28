@@ -3,6 +3,8 @@ import argparse
 import yaml
 from src import handle_files, process_data, make_requests
 import sys
+from botocore.config import Config
+import string
 
 with open("config.yml", 'r') as stream:
     config = yaml.safe_load(stream)
@@ -27,36 +29,47 @@ def process(args):
     
     # get a token
     scope = ['DISCOVERY']
-    oauth_session = make_requests.createOAuthSession(config, scope)
+    try:
+        oauth_session = make_requests.createOAuthSession(config, scope)
     
-    processConfig = config.update({"oauth-session": oauth_session})
-    
-    csv_read = handle_files.loadCSV(item_file) 
-    if operation == "retrieveAllInstitutionRetentions":   
-        results = []        
-        for index, row in csv_read.iterrows():
-            csv_read_institution = process_data.retrieveAllInstitutionRetentions(processConfig, row['symbol'])
-            result = handle_files.saveFileLocal(csv_read_institution, output_dir)
-            results.append(row['symbol'] + ": " + result)
+        config.update({"oauth-session": oauth_session})
+        processConfig = config
+        csv_read = handle_files.loadCSV(item_file) 
+        if operation == "retrieveAllInstitutionRetentions":   
+            results = []        
+            for index, row in csv_read.iterrows():
+                csv_read_institution = process_data.retrieveAllInstitutionRetentions(processConfig, row['symbol'])
+                result = handle_files.saveFileLocal(csv_read_institution, output_dir)
+                results.append(row['symbol'] + ": " + result)
+            
+            return ",".join(results)      
+        else:
+            if operation == "retrieveMergedOCLCNumbers":
+                csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
+            elif operation == "retrieveHoldingsByOCLCNumber":
+                csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read)
+            elif operation == "retrieveSPByOCLCNumber":
+                csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read)
+            elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
+                csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read)        
         
-        return ",".join(results)      
-    else:
-        if operation == "retrieveMergedOCLCNumbers":
-            csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
-        elif operation == "retrieveHoldingsByOCLCNumber":
-            csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read)
-        elif operation == "retrieveSPByOCLCNumber":
-            csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read)
-        elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
-            csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read)        
-    
-        return handle_files.saveFileLocal(csv_read, output_dir)
-    
+            return handle_files.saveFileLocal(csv_read, output_dir)
+
+    except BaseException as err:
+        result = 'no access token ' + str(err)
+        return result   
 
 if __name__ == '__getData__':
     try:
         args = processArgs()
         print(process(args))
     except SystemExit:
-        print("Invalid Operation specified")    
+        print("Invalid Operation specified")
+else:
+    try:
+        args = processArgs()
+        print(process(args))
+    except SystemExit:
+        print("Invalid Operation specified")
+        
     
