@@ -3,7 +3,6 @@ import argparse
 import yaml
 from src import handle_files, process_data, make_requests
 import sys
-from botocore.config import Config
 import string
 
 with open("config.yml", 'r') as stream:
@@ -14,13 +13,20 @@ def processArgs():
         parser = argparse.ArgumentParser()
         parser.add_argument('--itemFile', required=True, help='File you want to process')
         parser.add_argument('--operation', required=True, choices=['retrieveMergedOCLCNumbers', 'retrieveHoldingsByOCLCNumber', 'retrieveSPByOCLCNumber', 'retrieveInstitutionRetentionsbyOCLCNumber', 'retrieveAllInstitutionRetentions'], help='Operation to run: retrieveMergedOCLCNumbers, retrieveHoldingsByOCLCNumber, retrieveSPByOCLCNumber, retrieveInstitutionRetentionsbyOCLCNumber, retrieveAllInstitutionRetentions')    
-        parser.add_argument('--outputDir', required=True, help='Directory to save output to')
-        parser.add_argument('--heldBy', required=False, help='OCLC Symbol to check holdings/retentions for')
-        parser.add_argument('--heldByGroup', required=False, help='Group OCLC Symbol to check holdings/retentions for')
-        parser.add_argument('--heldInState', required=False, help='State to check retentions in')
+        parser.add_argument('--outputDir', required=True, help='Directory to save output to')                
+        
+        if "retrieveInstitutionRetentionsbyOCLCNumber" in sys.argv:
+            parser.add_argument('--heldBy', required=True, help='OCLC Symbol to check holdings/retentions for')
+        elif "retrieveHoldingsByOCLCNumber" in sys.argv:
+            group = parser.add_mutually_exclusive_group(required=True)          
+            group.add_argument('--heldBy', help='OCLC Symbol to check holdings/retentions for')
+            group.add_argument('--heldByGroup', help='Group OCLC Symbol to check holdings/retentions for')
+        elif "retrieveSPByOCLCNumber" in sys.argv:
+            group = parser.add_mutually_exclusive_group(required=True)
+            group.add_argument('--heldByGroup', help='Group OCLC Symbol to check holdings/retentions for')
+            group.add_argument('--heldInState', help='State to check retentions')
     
         args = parser.parse_args()
-        return args
     except SystemExit:
         raise
 
@@ -30,6 +36,8 @@ def process(args):
     operation = args.operation
     output_dir = args.outputDir
     heldBy = args.heldBy
+    heldByGroup = args.heldByGroup
+    heldInState = args.heldInState
     
     # get a token
     scope = ['DISCOVERY']
@@ -51,9 +59,9 @@ def process(args):
             if operation == "retrieveMergedOCLCNumbers":
                 csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
             elif operation == "retrieveHoldingsByOCLCNumber":
-                csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read)
-            elif operation == "retrieveSPByOCLCNumber":
-                csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read)
+                csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read, heldByGroup, heldBy)    
+            elif operation == "retrieveSPByOCLCNumber":                
+                csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read, heldByGroup, heldInState)   
             elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
                 csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read, heldBy)        
         
