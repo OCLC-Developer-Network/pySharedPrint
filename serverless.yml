@@ -1,7 +1,12 @@
 service: 
     name: shared-print-python-example
+package:
+  exclude:
+    - venv/**
+    - node_modules/**
+    - tests/**    
 custom:
-  bucket: test-bucket-for-csvs    
+  bucket: test-bucket-for-sp-csvs    
 provider:
  name: aws
  runtime: python3.6
@@ -33,11 +38,5 @@ functions:
             event: s3:ObjectCreated:*
             rules:
               - prefix: retainedholdingsByOCLCNumber
-              - suffix: .csv
-resources:
-  Resources:
-    CSVBucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.bucket}         
+              - suffix: .csv         
       
