@@ -44,11 +44,10 @@ def getBriefHoldings(config, oclcnumber, heldInCountry):
             result = r.json()
             if result.get('briefRecords') and result.get('briefRecords')[0].get('institutionHolding').get('briefHoldings'):
                 holdingsList = map(lambda row: row.get('oclcSymbol'), result.get('briefRecords')[0].get('institutionHolding').get('briefHoldings'))
-                holdings = ",".join(holdingsList)
-                total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')            
+                holdings = ",".join(holdingsList)                            
             else:
-                holdings = ""    
-                total_holding_count = ""
+                holdings = "none"    
+            total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
             oclcnumber = ""
@@ -78,10 +77,10 @@ def getHoldings(config, oclcnumber, heldByGroup="", heldBy=""):
                 holdingsList = map(lambda row: row.get('location').get('holdingLocation'), result.get('briefRecords')[0].get('institutionHolding').get('detailedHoldings'))
                 holdingsList = list(set(holdingsList))
                 holdings = ",".join(holdingsList)
-                total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')                
+                                
             else:                
-                holdings = ""
-                total_holding_count = ""
+                holdings = "none"
+            total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
             oclcnumber = ""
@@ -113,11 +112,10 @@ def getRetainedHoldings(config, oclcnumber, heldByGroup="", heldInState=""):
             result = r.json()
             if result.get('briefRecords') and result.get('briefRecords')[0].get('institutionHolding').get('detailedHoldings'):
                 retained_holdingsList = map(lambda row: row.get('location').get('holdingLocation'), result.get('briefRecords')[0].get('institutionHolding').get('detailedHoldings'))
-                retained_holdings = ",".join(retained_holdingsList)
-                total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
+                retained_holdings = ",".join(retained_holdingsList)                
             else:
-                retained_holdings = ""
-                total_holding_count = ""
+                retained_holdings = "none"
+            total_holding_count = result.get('briefRecords')[0].get('institutionHolding').get('totalHoldingCount')
             status = "success"
         except json.decoder.JSONDecodeError:
             oclcnumber = ""

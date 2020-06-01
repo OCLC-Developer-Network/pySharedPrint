@@ -17,7 +17,7 @@ def test_readFileFromBucket(s3_bucket, s3_event_payload):
     
 def test_loadCSV():
     item_file = "oclcnumber\n2416076\n318877925\n829387251\n55887559\n70775700\n466335791\n713567391\n84838876\n960238778\n893163693"     
-    result = handle_files.loadCSV(io.StringIO(item_file))
+    result = handle_files.loadCSV(item_file)
     assert type(result) is pandas.DataFrame
     assert list(result.columns.values) == ['oclcnumber']
     

@@ -21,7 +21,7 @@ def test_getBriefHoldings(requests_mock, mockOAuthSession, getTestConfig):
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "2416076"
     country = "US"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-holdings?oclcNumber=' + oclcNumber + '&heldInCountry=' + country, status_code=200, json=holdings_list)
+    requests_mock.register_uri('GET', 'https://americas.discovery.api.oclc.org/worldcat/v2/bibs-holdings?oclcNumber=' + oclcNumber + '&heldInCountry=' + country, status_code=200, json=holdings_list)
     bib = make_requests.getBriefHoldings(getTestConfig, oclcNumber, country);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '2416076'
@@ -33,12 +33,12 @@ def test_getBriefHoldings_NoResults(requests_mock, mockOAuthSession, getTestConf
     getTestConfig.update({'oauth-session': mockOAuthSession})
     oclcNumber = "2416076"
     country = "CH"
-    requests_mock.register_uri('GET', 'https://americas.api.oclc.org/discovery/worldcat/v1/bibs-holdings?oclcNumber=' + oclcNumber + '&heldInCountry=' + country, status_code=200, json=no_holdings_list)
+    requests_mock.register_uri('GET', 'https://americas.discovery.api.oclc.org/worldcat/v2/bibs-holdings?oclcNumber=' + oclcNumber + '&heldInCountry=' + country, status_code=200, json=no_holdings_list)
     bib = make_requests.getBriefHoldings(getTestConfig, oclcNumber, country);
     assert type(bib) is pandas.core.series.Series
     assert bib[0] == '2416076'
     assert bib[1] == 246
-    assert bib[2] == ""
+    assert bib[2] == "none"
     assert bib[3] == 'success'     
     
     

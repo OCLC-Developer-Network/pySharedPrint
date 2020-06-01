@@ -19,7 +19,7 @@ key = "test_csv.csv"
 @pytest.fixture(scope="function")
 def mockOAuthSession(requests_mock, getTestConfig):
     requests_mock.register_uri('POST', getTestConfig.get('token_url') , status_code=200, json=oauth_response)
-    oauth_session = make_requests.createOAuthSession(getTestConfig, 'DISCOVERY')    
+    oauth_session = make_requests.createOAuthSession(getTestConfig, 'wcapi')    
     return oauth_session
 
 @pytest.fixture(scope="function")

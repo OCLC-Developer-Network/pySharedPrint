@@ -2,6 +2,6 @@ key: key
 secret: secret
 auth_url: https://oauth.oclc.org/auth
 token_url: https://oauth.oclc.org/token
-discovery_service_url: https://americas.api.oclc.org/discovery
-base_path: /worldcat/v1
+discovery_service_url: https://americas.discovery.api.oclc.org
+base_path: /worldcat/v2
 institution_symbol: OCPSB

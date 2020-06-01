@@ -12,9 +12,9 @@ with open('tests/mocks/access_token.json', 'r') as myfile:
 oauth_response = json.loads(data)
 
 def test_createOAuthSession(requests_mock, getTestConfig):
-    #?grant_type=client_credentials&scope=DISCOVERY
+    #?grant_type=client_credentials&scope=wcapi
     requests_mock.register_uri('POST', 'https://oauth.oclc.org/token', status_code=200, json=oauth_response)
-    oauth_session = make_requests.createOAuthSession(getTestConfig, 'DISCOVERY') 
+    oauth_session = make_requests.createOAuthSession(getTestConfig, 'wcapi') 
     assert type(oauth_session) is OAuth2Session
     assert oauth_session.access_token == 'tk_12345'
      

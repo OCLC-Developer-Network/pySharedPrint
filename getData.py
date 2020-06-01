@@ -27,6 +27,7 @@ def processArgs():
             group.add_argument('--heldInState', help='State to check retentions')
     
         args = parser.parse_args()
+        return args
     except SystemExit:
         raise
 
@@ -35,12 +36,9 @@ def process(args):
     
     operation = args.operation
     output_dir = args.outputDir
-    heldBy = args.heldBy
-    heldByGroup = args.heldByGroup
-    heldInState = args.heldInState
     
     # get a token
-    scope = ['DISCOVERY']
+    scope = ['wcapi']
     try:
         oauth_session = make_requests.createOAuthSession(config, scope)
     
@@ -59,10 +57,20 @@ def process(args):
             if operation == "retrieveMergedOCLCNumbers":
                 csv_read = process_data.retrieveMergedOCLCNumbers(processConfig, csv_read)
             elif operation == "retrieveHoldingsByOCLCNumber":
-                csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read, heldByGroup, heldBy)    
+                if hasattr(args, 'heldBy'):
+                    heldBy = args.heldBy
+                elif hasattr(args, 'heldByGroup'):
+                    heldByGroup = args.heldByGroup
+                csv_read = process_data.retrieveHoldingsByOCLCNumber(processConfig, csv_read, heldByGroup, heldBy)
+    
             elif operation == "retrieveSPByOCLCNumber":                
-                csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read, heldByGroup, heldInState)   
+                csv_read = process_data.retrieveSPByOCLCNumber(processConfig, csv_read, heldByGroup, heldInState) 
+                if hasattr(args, 'heldByGroup'):
+                    heldByGroup = args.heldByGroup
+                elif hasattr(args, 'heldInState'):     
+                    heldInState = args.heldInState  
             elif operation == "retrieveInstitutionRetentionsbyOCLCNumber":
+                heldBy = args.heldBy
                 csv_read = process_data.retrieveInstitutionRetentionsbyOCLCNumber(processConfig, csv_read, heldBy)        
         
             return handle_files.saveFileLocal(csv_read, output_dir)
