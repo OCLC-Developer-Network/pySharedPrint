@@ -10,21 +10,15 @@ install:
 script:
   - python -m pytest
 
-stages:
-  - name: before_deploy
-    # require a tag to be present to deploy
-    if: tag IS present
-  - name: deploy
-    # require a tag to be present to deploy
-    if: tag IS present
-
 before_deploy:
   - npm install -g npm
   - npm install  
 
 deploy:
   provider: script
-  script: npm deploy
+  on:
+    tags: true
+  script: serverless deploy
   skip_cleanup: true    
 
 # configure notifications (email, IRC, campfire etc)
