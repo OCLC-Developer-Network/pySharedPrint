@@ -11,6 +11,9 @@ script:
   - python -m pytest
 
 stages:
+  - name: before_deploy
+    # require a tag to be present to deploy
+    if: tag IS present
   - name: deploy
     # require a tag to be present to deploy
     if: tag IS present
