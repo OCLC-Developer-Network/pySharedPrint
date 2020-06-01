@@ -1,3 +1,4 @@
+import os
 import pytest
 import yaml
 import json
@@ -9,6 +10,8 @@ from src import make_requests
 
 with open('tests/mocks/access_token.json', 'r') as myfile:
     data=myfile.read()
+    
+os.environ['testConfig'] = "tests/test_config.yml"
 
 # parse file
 oauth_response = json.loads(data)
@@ -24,7 +27,7 @@ def mockOAuthSession(requests_mock, getTestConfig):
 
 @pytest.fixture(scope="function")
 def getTestConfig():
-    with open("tests/test_config.yml", 'r') as stream:
+    with open(os.environ['testConfig'], 'r') as stream:
         config = yaml.safe_load(stream)
     
     return config

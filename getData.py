@@ -4,9 +4,12 @@ import yaml
 from src import handle_files, process_data, make_requests
 import sys
 import string
+import os
 
-with open("config.yml", 'r') as stream:
-    config = yaml.safe_load(stream)
+if os.environ['testConfig']:
+    configFile = os.environ['testConfig']
+else:
+    configFile = 'config.yml'
     
 def processArgs():
     try:
@@ -32,6 +35,8 @@ def processArgs():
         raise
 
 def process(args):
+    with open(config_file, 'r') as stream:
+        config = yaml.safe_load(stream)
     item_file = handle_files.readFileFromLocal(args.itemFile) 
     
     operation = args.operation
