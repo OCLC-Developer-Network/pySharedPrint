@@ -55,7 +55,7 @@ requests==2.22.0
 requests-mock==1.7.0
 requests-oauthlib==1.2.0
 responses==0.10.7
-rsa==4.0
+rsa==4.1
 s3transfer==0.2.1
 six==1.12.0
 sshpubkeys==3.1.0
