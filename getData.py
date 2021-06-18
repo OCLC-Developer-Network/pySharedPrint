@@ -40,12 +40,10 @@ def process(args):
     item_file = handle_files.readFileFromLocal(args.itemFile) 
     
     operation = args.operation
-    output_dir = args.outputDir
-    
-    # get a token
-    scope = ['wcapi']
+    output_dir = args.outputDir    
+
     try:
-        oauth_session = make_requests.createOAuthSession(config, scope)
+        oauth_session = make_requests.createOAuthSession(config, [config.read('scope')])
     
         config.update({"oauth-session": oauth_session})
         processConfig = config

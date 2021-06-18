@@ -5,3 +5,4 @@ token_url: https://oauth.oclc.org/token
 discovery_service_url: https://americas.discovery.api.oclc.org
 base_path: /worldcat/search/v2
 institution_symbol: OCPSB
+scope: wcapi
