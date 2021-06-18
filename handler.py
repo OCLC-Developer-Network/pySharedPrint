@@ -9,7 +9,7 @@ with open("config.yml", 'r') as stream:
     config = yaml.safe_load(stream)
      
 # get a token
-scope = ['DISCOVERY']
+scope = ['wcapi']
 oauth_session = make_requests.createOAuthSession(config, scope)
 
 processConfig = config.update({"oauth-session": oauth_session})
